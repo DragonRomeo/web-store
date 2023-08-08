@@ -1,0 +1,28 @@
+.header {
+  width: 100%;
+  min-width: 1024px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav {
+  width: 20%;
+}
+
+.ul {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
