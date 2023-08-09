@@ -1,8 +1,6 @@
+@use './variables.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap');
 
-
-$main-bg-color: #FFF;
-$text-color: #324d67;
 
 * {
   margin: 0;
@@ -10,10 +8,14 @@ $text-color: #324d67;
 }
 
 body {
-  background-color: $main-bg-color;
-  color: $text-color;
-  padding: 20px;
+  background-color: $black-bg;
+  color: $neutral-text;
   font-family: 'Golos Text', sans-serif;
+  font-size: 18px;
 }
 
+#root {
+  width: 100%;
+  max-width: 1640px;
+}
 

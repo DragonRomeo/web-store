@@ -1,7 +1,4 @@
-//rfc/rafce - for fast snippet.
-//ctrl + alt + Rimport React from 'react'
 import styles from './Header.module.css';
-// import svg from '../../../public/logo2.png';
 
 const Header = () => {
   return (
@@ -18,11 +15,11 @@ const Header = () => {
         <div className={styles.user}>
           <div className={styles.card}>
             <p>Cart</p>
-            <div>card-image</div>
+            <div className={styles.iconСart}/>
           </div>
           <div className={styles.card}>
             <p>Login</p>
-            <div>login-image</div>
+            <div className={styles.iconLogin}/>
           </div>
         </div>
       </header>
@@ -30,4 +27,5 @@ const Header = () => {
   );
 };
 
+//TODO: replace cart & login img on SVG.
 export default Header;

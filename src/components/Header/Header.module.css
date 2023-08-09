@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header {
   width: 100%;
   min-width: 1024px;
@@ -5,15 +6,16 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 20px 0;
 }
 
 h1 {
-  color: black;
+  color: #d8d4cf;
   margin: 0;
 }
 
 .nav {
-  width: 20%;
+  width: 30%;
 }
 
 .ul {
@@ -26,9 +28,25 @@ h1 {
 .user {
   display: flex;
   flex-direction: row;
+  width: 13%;
+  justify-content: space-between;
 }
 
 .card {
   display: flex;
   flex-direction: row;
+}
+
+.iconСart {
+  width: 20px;
+  height: 20px;
+  background-image: url("/public/icon-cart.png");
+  background-size: cover;
+}
+
+.iconLogin {
+  width: 20px;
+  height: 20px;
+  background-image: url("/public/icon-login.png");
+  background-size: cover;
 }/*# sourceMappingURL=Header.module.css.map */
