@@ -1,0 +1,15 @@
+/* PATH SECTION */
+section {
+  width: 100%;
+  background-color: #eaded7;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.path {
+  padding: 0 20px;
+  font-size: 20px;
+  color: black;
+}/*# sourceMappingURL=Path.module.css.map */
