@@ -1,9 +1,18 @@
+// @use './src/assets/styles/variables.scss';
+@use '../../assets/styles/variables.scss' as *;
+
 .header {
   width: 100%;
   min-width: 1024px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  color: $text-color;
+  margin: 0;
 }
 
 .nav {
