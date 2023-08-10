@@ -1,9 +1,13 @@
-import Path from "./Path/Path"
+import Path from './Path/Path';
+import ProductMainSection from './ProductMainSection/ProductMainSection.jsx';
 
 const Main = () => {
   return (
-    <Path/>
-  )
-}
+    <>
+      <Path />
+      <ProductMainSection></ProductMainSection>
+    </>
+  );
+};
 
-export default Main
+export default Main;
