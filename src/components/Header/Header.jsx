@@ -1,10 +1,12 @@
 import styles from './Header.module.css';
+import { ReactComponent as CartIcon } from '/public/icon-cart.svg';
+import { ReactComponent as LoginIcon } from '/public/icon-login.svg';
 
 const Header = () => {
   return (
     <>
       <header className={styles.header}>
-       <h1 className={styles.h1}>online-shop</h1>
+        <h1 className={styles.h1}>online-shop</h1>
         <nav className={styles.nav}>
           <ul className={styles.ul}>
             <li>Home</li>
@@ -15,11 +17,11 @@ const Header = () => {
         <div className={styles.user}>
           <div className={styles.card}>
             <p>Cart</p>
-            <div className={styles.iconСart}/>
+            <CartIcon className={styles.iconCart} width='30' height='30' viewBox="0 0 60 60"/>
           </div>
           <div className={styles.card}>
             <p>Login</p>
-            <div className={styles.iconLogin}/>
+            <LoginIcon className={styles.iconLogin} width='30' height='30' viewBox='0 0 600 600'/>
           </div>
         </div>
       </header>

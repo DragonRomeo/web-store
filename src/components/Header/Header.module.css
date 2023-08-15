@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* PATH SECTION */
 .header {
   width: 100%;
   display: flex;
@@ -27,30 +27,21 @@ h1 {
 .user {
   display: flex;
   flex-direction: row;
-  width: 11%;
+  width: 13%;
   justify-content: space-between;
   font-size: 22px;
-  gap: 10px;
 }
 
 .card {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  align-items: center;
-  gap: 5px;
 }
 
-.iconСart {
-  width: 20px;
-  height: 20px;
-  background-image: url('/public/icon-cart.png');
-  background-size: cover;
+.iconCart * {
+  fill: white;
+  color: white;
 }
 
-.iconLogin {
-  width: 20px;
-  height: 20px;
-  background-image: url('/public/icon-login.png');
-  background-size: cover;
-} /*# sourceMappingURL=Header.module.css.map */
+.iconLogin * {
+  fill: white;
+}/*# sourceMappingURL=Header.module.css.map */

@@ -3,7 +3,6 @@
 
 .header {
   width: 100%;
-  min-width: 1024px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -40,16 +39,11 @@ h1 {
   flex-direction: row;
 }
 
-.iconСart {
-  width: 20px;
-  height: 20px;
-  background-image: url('/public/icon-cart.png');
-  background-size: cover;
+.iconCart * {
+  fill: white;
+  color: white;
 }
 
-.iconLogin {
-  width: 20px;
-  height: 20px;
-  background-image: url('/public/icon-login.png');
-  background-size: cover;
+.iconLogin * {
+  fill: white;
 }
