@@ -41,10 +41,9 @@ h1 {
 }
 
 .iconCart * {
-  fill: white;
-  color: white;
+  fill: #d8d4cf;
 }
 
 .iconLogin * {
-  fill: white;
+  fill: #d8d4cf;
 }/*# sourceMappingURL=Header.module.css.map */
