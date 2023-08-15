@@ -1,10 +1,13 @@
-import CardsContainer from "./CardsContainer/CardsContainer"
-
+import CardsContainer from './CardsContainer/CardsContainer';
+import Options from './Options/Options';
 
 const ProductsContainer = () => {
   return (
-    <CardsContainer/>
-  )
-}
+    <>
+      <Options />
+      <CardsContainer />
+    </>
+  );
+};
 
-export default ProductsContainer
+export default ProductsContainer;
