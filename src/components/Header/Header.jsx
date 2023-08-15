@@ -29,5 +29,5 @@ const Header = () => {
   );
 };
 
-//TODO: replace cart & login img on SVG.
+//TODO: replace p & SVG into BUTTON
 export default Header;

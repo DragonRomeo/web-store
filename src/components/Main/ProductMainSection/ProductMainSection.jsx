@@ -1,6 +1,8 @@
+import ProductsContainer from "./ProductsContainer/ProductsContainer"
+
 const ProductMainSection = () => {
   return (
-    <div>ProductMainSection</div>
+    <ProductsContainer/>
   )
 }
 
