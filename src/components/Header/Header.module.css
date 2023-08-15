@@ -27,14 +27,17 @@ h1 {
 .user {
   display: flex;
   flex-direction: row;
-  width: 13%;
+  width: 11%;
+  min-width: 180px;
   justify-content: space-between;
   font-size: 22px;
+  gap: 10px;
 }
 
 .card {
   display: flex;
   flex-direction: row;
+  gap: 5px;
 }
 
 .iconCart * {
