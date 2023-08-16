@@ -12,6 +12,7 @@ body {
   color: $neutral-text;
   font-family: 'Golos Text', sans-serif;
   font-size: 18px;
+  margin: 0 auto;
 }
 
 #root {
@@ -19,4 +20,5 @@ body {
   max-width: 1640px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
