@@ -5,8 +5,10 @@ import Filters from './Filters/Filters';
 const ProductMainSection = () => {
   return (
     <section className={styles.section}>
-      <Filters />
-      <ProductsContainer />
+      <div className={styles.container}>
+        <Filters />
+        <ProductsContainer />
+      </div>
     </section>
   );
 };
