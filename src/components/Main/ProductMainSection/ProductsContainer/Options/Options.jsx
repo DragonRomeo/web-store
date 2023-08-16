@@ -6,9 +6,10 @@ import styles from './Options.module.css';
 const Options = () => {
   return (
     <div className={styles.container}>
-      <CountProducts />
-      <Sort />
       <View />
+      <CountProducts />
+      <span className={styles.line} />
+      <Sort />
     </div>
   );
 };

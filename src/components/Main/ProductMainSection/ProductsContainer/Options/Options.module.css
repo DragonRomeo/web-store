@@ -1,7 +1,15 @@
+/* PATH SECTION */
 .container {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
   padding: 40px 0 25px;
+  align-items: center;
+}
+
+.line {
+  width: 30%;
+  height: 1px;
+  border-bottom: 1px solid #d8d4cf;
 }/*# sourceMappingURL=Options.module.css.map */
