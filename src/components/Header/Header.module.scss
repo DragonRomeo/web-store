@@ -11,7 +11,7 @@
 
 .mainContainer {
   width: $main-content-size;
-  min-width: 700px;
+  min-width: $min-width-content;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
