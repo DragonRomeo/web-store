@@ -9,7 +9,7 @@
 
 .container {
   display: flex;
-  width: 80%;
+  width: 65%;
   height: 100%;
   flex-direction: row;
   justify-content: space-between;
