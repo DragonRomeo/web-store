@@ -1,3 +1,5 @@
+@use '../../../assets/styles/variables.scss' as *;
+
 .section {
   display: flex;
   width: 100%;
@@ -8,7 +10,7 @@
 
 .container {
   display: flex;
-  width: 90%;
+  width: $main-content-size;
   height: 100%;
   flex-direction: row;
   background-color: transparent;

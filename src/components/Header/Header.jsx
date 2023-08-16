@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
+        <div className={styles.mainContainer}>
         <h1 className={styles.h1}>online-shop</h1>
         <nav className={styles.nav}>
           <ul className={styles.ul}>
@@ -23,6 +24,7 @@ const Header = () => {
             <p>Login</p>
             <LoginIcon className={styles.iconLogin} width='30' height='30' viewBox='0 0 600 600'/>
           </div>
+        </div>
         </div>
       </header>
     </>

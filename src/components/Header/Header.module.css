@@ -1,6 +1,16 @@
 /* PATH SECTION */
+/* VALUES */
 .header {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.mainContainer {
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
