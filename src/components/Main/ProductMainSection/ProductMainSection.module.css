@@ -9,7 +9,7 @@
 
 .container {
   display: flex;
-  width: 90%;
+  width: 80%;
   height: 100%;
   flex-direction: row;
   background-color: transparent;
