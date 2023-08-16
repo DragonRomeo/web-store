@@ -16,4 +16,6 @@ body {
 #root {
   width: 100%;
   max-width: 1640px;
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=global.css.map */

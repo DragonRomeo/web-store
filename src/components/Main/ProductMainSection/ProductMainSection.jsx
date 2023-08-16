@@ -1,9 +1,14 @@
-import ProductsContainer from "./ProductsContainer/ProductsContainer"
+import ProductsContainer from './ProductsContainer/ProductsContainer';
+import styles from './ProductMainSection.module.css';
+import Filters from './Filters/Filters';
 
 const ProductMainSection = () => {
   return (
-    <ProductsContainer/>
-  )
-}
+    <section className={styles.section}>
+      <Filters />
+      <ProductsContainer />
+    </section>
+  );
+};
 
-export default ProductMainSection
+export default ProductMainSection;
