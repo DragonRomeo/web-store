@@ -4,6 +4,7 @@
     width: 11%;
     justify-content: space-between;
     min-width: 220px;
+    align-items: center;
     
 }
 
@@ -15,7 +16,9 @@
     border-color: transparent;
     text-transform: capitalize;
     font-family: inherit;
-    font-size: 16px;
-    padding: 1px 0;
+    font-size: 18px;
+    // padding: 1px 0;
+    background-color: transparent;
+    color: inherit;
 }
 
