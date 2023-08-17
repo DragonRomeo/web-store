@@ -2,7 +2,7 @@ import styles from './Category.module.css';
 
 const Category = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container }>
       <h5 className={styles.h5}>category</h5>
       <div className={styles.btnWrapper}>
         <button>rpg</button>
