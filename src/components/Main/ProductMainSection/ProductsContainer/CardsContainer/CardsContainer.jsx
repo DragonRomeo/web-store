@@ -1,38 +1,36 @@
+import { useState } from 'react';
 import Card from './Card/Card';
-import styles from './CardsContainer.module.css'
+import styles from './CardsContainer.module.css';
 
-// const url = 'https://raw.githubusercontent.com/DragonRomeo/online-store-server/main/games.data.json';
 const getUrl = async () => {
   const url = 'https://dummyjson.com/products';
   const res = await fetch(url);
   const json = await res.json();
-  console.log(json);
-}
+  console.log(json.products);
+  return json;
+};
 
-const handleClick = () => {
-  console.log('click')
-}
-
+const arr = [
+  {
+    id: 0,
+    title: 'Geka',
+  },
+  {
+    id: 1,
+    title: 'Zheka',
+  },
+];
 
 const CardsContainer = () => {
+  // const json = await getUrl();
+
+  const [state] = useState(arr);
   return (
     <div className={styles.container}>
-      <Card onClick={handleClick} />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {/* {json.products.map((product) => <Card key={product.id} value={product}/>)} */}
+      {state.map((el) => (
+        <Card key={el.id} value={el} />
+      ))}
     </div>
   );
 };

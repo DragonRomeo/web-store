@@ -1,31 +1,39 @@
-import styles from './Card.module.css'
+import styles from './Card.module.css';
+import PropTypes from 'prop-types';
 //rafce
-const getUrl = async () => {
-  const url = 'https://dummyjson.com/products';
-  const res = await fetch(url);
-  const json = await res.json();
-  console.log(json);
-  console.log(json.products);
-}
 
-const handleClick = () => {
-  console.log('click');
-  getUrl();
-}
+// const Card = ({ value }) => {
+//   return (
+//     <div className={styles.card}>
+//       {/* <img src={value.thumbnail} width='300px' height='300px' alt='img' /> */}
+//       <div className={styles.info}>
+//         <p>{value.title}</p>
+//         <p> {new Intl.NumberFormat('en-US', {
+//             style: 'currency',
+//             currency: 'USD',
+//           }).format(value.price)}</p>
+//       </div>
+//     </div>
+//   );
+// };
 
-const Card = () => {
+const Card = ({ value }) => {
+  console.log(value)
   return (
-    <div className={styles.card} onClick={handleClick}>
-      <img src="https://i.playground.ru/e/zGJdOLw2YeyxUg2offNtjg.jpeg?1200x1200" width="300px" height="300px" alt="img" />
-      <div className={styles.info}>
-      <p>Game Name</p>
-      <p>30.99$</p>
-      </div>
-      
+    <div className={styles.card} key={value.id}>
+      <img
+        src='https://3dnews.ru/assets/external/illustrations/2023/08/11/1091372/1.jpg'
+        width='300px'
+        height='300px'
+        alt='img'
+      />
+      <p>{value.title}</p>
     </div>
+  );
+};
 
-    
-  )
-}
+Card.propTypes = {
+  value: PropTypes.object,
+};
 
-export default Card
+export default Card;
