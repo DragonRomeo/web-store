@@ -18,15 +18,12 @@ import PropTypes from 'prop-types';
 // };
 
 const Card = ({ value }) => {
-  console.log(value)
+  if (typeof value !== 'object') return;
+  
+  console.log(value);
   return (
     <div className={styles.card} key={value.id}>
-      <img
-        src={value.images[0]}
-        width='300px'
-        height='300px'
-        alt='img'
-      />
+      <img src={value.images[0]} width='300px' height='300px' alt='img' />
       <p>{value.title}</p>
     </div>
   );

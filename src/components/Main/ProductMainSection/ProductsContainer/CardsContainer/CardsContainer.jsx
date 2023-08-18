@@ -10,27 +10,8 @@ const getUrl = async () => {
   return json;
 };
 
-const arr = [
-  {
-    id: 0,
-    title: 'Geka',
-  },
-  {
-    id: 1,
-    title: 'Zheka',
-  },
-  {
-    id: 2,
-    title: 'Ruvik',
-  },
-  {
-    id: 3,
-    title: 'Jubaka',
-  },
-];
-
 const CardsContainer = () => {
-  const [data, useData] = useState(arr);
+  const [data, useData] = useState('');
 
   useEffect(() => {
     const datesInit = async () => {
@@ -42,13 +23,18 @@ const CardsContainer = () => {
     datesInit();
   }, []);
 
-  return (
-    <div className={styles.container}>
-      {data.map((el) => (
-        <Card key={el.id} value={el} />
-      ))}
-    </div>
-  );
+  let content =
+    data === '' ? (
+      <p>Data not found</p>
+    ) : (
+      <div className={styles.container}>
+        {data.map((el) => (
+          <Card key={el.id} value={el} />
+        ))}
+      </div>
+    );
+
+  return content;
 };
 
 export default CardsContainer;
