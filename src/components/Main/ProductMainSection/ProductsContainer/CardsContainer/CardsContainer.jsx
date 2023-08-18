@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from './Card/Card';
 import styles from './CardsContainer.module.css';
 
@@ -19,16 +19,32 @@ const arr = [
     id: 1,
     title: 'Zheka',
   },
+  {
+    id: 2,
+    title: 'Ruvik',
+  },
+  {
+    id: 3,
+    title: 'Jubaka',
+  },
 ];
 
 const CardsContainer = () => {
-  // const json = await getUrl();
+  const [data, useData] = useState(arr);
 
-  const [state] = useState(arr);
+  useEffect(() => {
+    const datesInit = async () => {
+      const json = await getUrl();
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useData(json.products);
+    };
+
+    datesInit();
+  }, []);
+
   return (
     <div className={styles.container}>
-      {/* {json.products.map((product) => <Card key={product.id} value={product}/>)} */}
-      {state.map((el) => (
+      {data.map((el) => (
         <Card key={el.id} value={el} />
       ))}
     </div>

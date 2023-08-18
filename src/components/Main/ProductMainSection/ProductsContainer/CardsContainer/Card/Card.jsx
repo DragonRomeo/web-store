@@ -22,7 +22,7 @@ const Card = ({ value }) => {
   return (
     <div className={styles.card} key={value.id}>
       <img
-        src='https://3dnews.ru/assets/external/illustrations/2023/08/11/1091372/1.jpg'
+        src={value.images[0]}
         width='300px'
         height='300px'
         alt='img'
