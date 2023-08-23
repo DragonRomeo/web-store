@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Card from './Card/Card';
 import styles from './CardsContainer.module.css';
 
+//Didn't work with import module 'getUrl' idk why.
 const getUrl = async () => {
   const url = 'https://dummyjson.com/products';
   const res = await fetch(url);

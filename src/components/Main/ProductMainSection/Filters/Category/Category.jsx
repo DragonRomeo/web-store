@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import styles from './Category.module.css';
+import getUrl from '../../jsonModules/getUrl';
+// getUrl
 
-const getUrl = async () => {
-  const url = 'https://dummyjson.com/products';
-  const res = await fetch(url);
-  const json = await res.json();
-  // console.log(json.products);
-  return json.products;
-};
+// const getUrl = async () => {
+//   const url = 'https://dummyjson.com/products';
+//   const res = await fetch(url);
+//   const json = await res.json();
+//   // console.log(json.products);
+//   return json.products;
+// };
 
 const getUnique = (arr) => {
   let result = [];
