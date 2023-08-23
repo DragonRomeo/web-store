@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styles from './Category.module.css';
 
 const getUrl = async () => {
@@ -25,22 +26,41 @@ const getCategory = async () => {
   const arr = products.map((obj) => obj.category);
   // console.log(arr);
   const filter = await getUnique(arr);
-  console.log(filter);
   return filter;
 };
 getCategory();
 
 const Category = () => {
+  const [items, useItems] = useState('');
+
+  useEffect(() => {
+    const datesInit = async () => {
+      const data = await getCategory();
+
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useItems(data);
+    };
+
+    datesInit();
+  }, []);
+
+  console.log(items[1]);
+
+  let content =
+    items === '' ? (
+      ''
+    ) : (
+      <div className={styles.container}>
+        {items.map((el) => (
+          <div key={items.indexOf(el)}>{el} </div>
+        ))}
+      </div>
+    );
+
   return (
     <div className={styles.container}>
       <h5 className={styles.h5}>category</h5>
-      <div className={styles.btnWrapper}>
-        <button>rpg</button>
-        <button>action</button>
-        <button>shooter</button>
-        <button>simulator</button>
-        <button>strategy</button>
-      </div>
+      <div className={styles.btnWrapper}>{content}</div>
     </div>
   );
 };
