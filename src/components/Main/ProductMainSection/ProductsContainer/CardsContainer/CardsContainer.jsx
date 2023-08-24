@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from './Card/Card';
 import styles from './CardsContainer.module.css';
-
-//Didn't work with import module 'getUrl' idk why.
-const getUrl = async () => {
-  const url = 'https://dummyjson.com/products';
-  const res = await fetch(url);
-  const json = await res.json();
-  return json;
-};
+import getUrl from '../../jsonModules/getUrl';
 
 const CardsContainer = () => {
   const [data, setData] = useState('');
@@ -16,7 +9,7 @@ const CardsContainer = () => {
   useEffect(() => {
     const datesInit = async () => {
       const json = await getUrl();
-      setData(json.products);
+      setData(json);
     };
 
     datesInit();
