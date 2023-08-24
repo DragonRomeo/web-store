@@ -24,7 +24,7 @@ const Category = () => {
     ) : (
       <div className={styles.container}>
         {items.map((el) => (
-          <button key={items.indexOf(el)}>{el} </button>
+          <button className={styles.button} key={items.indexOf(el)}>{el} </button>
         ))}
       </div>
     );
