@@ -25,7 +25,7 @@ const CardsContainer = () => {
 
   let content =
     data === '' ? (
-      <p>Data not found</p>
+      ''
     ) : (
       <div className={styles.container}>
         {data.map((el) => (

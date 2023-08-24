@@ -10,6 +10,7 @@ const Brand = () => {
       const brands = await getCategory('brand');
       console.log(brands);
 
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useData(brands);
     };
 
