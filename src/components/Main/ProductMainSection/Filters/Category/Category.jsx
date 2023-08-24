@@ -1,33 +1,14 @@
 import { useState, useEffect } from 'react';
 import styles from './Category.module.css';
-import getUrl from '../../jsonModules/getUrl';
+import getCategory from '../../jsonModules/getCategory';
 
-const getUnique = (arr) => {
-  let result = [];
-
-  for (let str of arr) {
-    if (!result.includes(str)) {
-      result.push(str);
-    }
-  }
-
-  return result;
-};
-
-const getCategory = async () => {
-  const products = await getUrl();
-  const arr = products.map((obj) => obj.category);
-  const filter = await getUnique(arr);
-  return filter;
-};
-getCategory();
 
 const Category = () => {
   const [items, useItems] = useState('');
 
   useEffect(() => {
     const datesInit = async () => {
-      const data = await getCategory();
+      const data = await getCategory('category');
 
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useItems(data);
