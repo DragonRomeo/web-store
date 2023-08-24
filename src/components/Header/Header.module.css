@@ -10,7 +10,7 @@
 }
 
 .mainContainer {
-  width: 65%;
+  width: 80%;
   min-width: 900px;
   display: flex;
   flex-direction: row;
