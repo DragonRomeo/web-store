@@ -11,13 +11,12 @@ const getUrl = async () => {
 };
 
 const CardsContainer = () => {
-  const [data, useData] = useState('');
+  const [data, setData] = useState('');
 
   useEffect(() => {
     const datesInit = async () => {
       const json = await getUrl();
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useData(json.products);
+      setData(json.products);
     };
 
     datesInit();
@@ -25,7 +24,7 @@ const CardsContainer = () => {
 
   let content =
     data === '' ? (
-      ''
+      <p>Data not found</p>
     ) : (
       <div className={styles.container}>
         {data.map((el) => (

@@ -11,13 +11,12 @@ const getData = async () => {
 };
 
 const Price = () => {
-  const [data, useData] = useState('');
+  const [data, setData] = useState('');
 
   useEffect(() => {
     const dateInit = async () => {
       const maxPrice = await getData();
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useData(maxPrice);
+      setData(maxPrice);
     };
 
     dateInit();

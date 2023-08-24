@@ -3,15 +3,14 @@ import getCategory from '../../jsonModules/getCategory';
 import styles from './Brand.module.css';
 
 const Brand = () => {
-  const [data, useData] = useState('');
+  const [data, setData] = useState('');
 
   useEffect(() => {
     const initData = async () => {
       const brands = await getCategory('brand');
       console.log(brands);
 
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useData(brands);
+      setData(brands);
     };
 
     initData();
