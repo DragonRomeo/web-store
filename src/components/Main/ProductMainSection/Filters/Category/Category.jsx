@@ -36,7 +36,6 @@ const Category = () => {
     datesInit();
   }, []);
 
-  console.log(items[1]);
 
   let content =
     items === '' ? (

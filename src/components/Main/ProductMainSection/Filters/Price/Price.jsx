@@ -2,13 +2,9 @@ import styles from './Price.module.css';
 import getUrl from '../../jsonModules/getUrl';
 import { useState, useEffect } from 'react';
 
-// console.log(await getUrl());
-
 const getData = async () => {
   const json = await getUrl();
-  // console.log(json);
   const arr = json.map((el) => el.price);
-  // console.log(arr);
   const sort = arr.sort((a, b) => b - a);
   console.log(sort[0]);
   return sort[0];
@@ -37,7 +33,7 @@ const Price = () => {
         min='0'
         max={data}
         // value={data}
-        step={data / data}
+        step='1'
       />
     </div>
   );
