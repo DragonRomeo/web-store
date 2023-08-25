@@ -8,7 +8,7 @@ const Brand = () => {
   useEffect(() => {
     const initData = async () => {
       const brands = await getCategory('brand');
-      console.log(brands);
+      // console.log(brands);
 
       setData(brands);
     };

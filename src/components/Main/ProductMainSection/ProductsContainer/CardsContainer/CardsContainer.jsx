@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import Card from './Card/Card';
 import styles from './CardsContainer.module.css';
-import getUrl from '../../jsonModules/getUrl';
+// import getUrl from '../../jsonModules/getUrl';
 
-const CardsContainer = () => {
-  const [data, setData] = useState('');
+const CardsContainer = ({ value }) => {
+  const [data, setData] = useState(null);
 
   useEffect(() => {
+    if (!value) return;
     const datesInit = async () => {
-      const json = await getUrl();
-      setData(json);
+      setData(await value);
     };
 
     datesInit();
-  }, []);
+  }, [value]);
 
   let content =
-    data === '' ? (
+    data === null ? (
       <p>Data not found</p>
     ) : (
       <div className={styles.container}>
