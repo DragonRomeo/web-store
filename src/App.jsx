@@ -1,14 +1,10 @@
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+import MainPage from "~pages/MainPage/MainPage.jsx";
 
 function App() {
   // const [count, setCount] = useState(0);
 
   return (
-    <>
-      <Header/>
-      <Main/>
-    </>
+    <MainPage/>
   );
 }
 
