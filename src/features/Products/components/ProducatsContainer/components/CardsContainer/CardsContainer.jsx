@@ -1,6 +1,9 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+
+import Card from './components/Card/Card.jsx';
+
 import styles from './CardsContainer.module.scss';
-import Card from "./components/Card/Card.jsx";
+
 // import getUrl from '../../jsonModules/getUrl';
 
 const CardsContainer = ({ value }) => {

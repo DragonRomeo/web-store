@@ -1,9 +1,9 @@
-import Brand from "./components/Brand/Brand.jsx";
-import Category from "./components/Category/Category.jsx";
-import Price from "./components/Price/Price.jsx";
-import Search from "./components/Search/Search.jsx";
+import Brand from './components/Brand/Brand.jsx';
+import Category from './components/Category/Category.jsx';
+import Price from './components/Price/Price.jsx';
+import Search from './components/Search/Search.jsx';
 
-import styles from "./Filters.module.scss"
+import styles from './Filters.module.scss';
 
 const Filters = () => {
   return (

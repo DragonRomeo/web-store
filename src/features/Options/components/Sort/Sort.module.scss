@@ -1,24 +1,22 @@
 .form {
-    display: flex;
-    flex-direction: row;
-    width: 11%;
-    justify-content: space-between;
-    min-width: 220px;
-    align-items: center;
-    
+  display: flex;
+  flex-direction: row;
+  width: 11%;
+  justify-content: space-between;
+  min-width: 220px;
+  align-items: center;
 }
 
 .sort {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .select {
-    border-color: transparent;
-    text-transform: capitalize;
-    font-family: inherit;
-    font-size: 18px;
-    // padding: 1px 0;
-    background-color: transparent;
-    color: inherit;
+  border-color: transparent;
+  text-transform: capitalize;
+  font-family: inherit;
+  font-size: 18px;
+  // padding: 1px 0;
+  background-color: transparent;
+  color: inherit;
 }
-

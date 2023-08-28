@@ -1,10 +1,8 @@
-import {useState} from "react"
+import { useState } from 'react';
 
-useState
+useState;
 const CountProducts = () => {
-  return (
-    <div>CountProducts</div>
-  )
-}
+  return <div>CountProducts</div>;
+};
 
-export default CountProducts
+export default CountProducts;

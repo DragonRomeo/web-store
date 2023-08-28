@@ -1,9 +1,9 @@
 import getUrl from './getUrl';
 
 const getUnique = (arr) => {
-  let result = [];
+  const result = [];
 
-  for (let str of arr) {
+  for (const str of arr) {
     if (!result.includes(str)) {
       result.push(str);
     }
