@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import getUrl from "~core/api/getUrl.js";
 import styles from './Price.module.scss';
 
+// TODO: move to core/api
 const getData = async () => {
   const json = await getUrl();
   const arr = json.map((el) => el.price);
@@ -11,12 +12,14 @@ const getData = async () => {
 };
 
 const Price = () => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState(0);
 
+  const [maxPrice, setMaxPrice] = useState();
+
+  // TODO: this should be moved to the topmost layer
   useEffect(() => {
     const dateInit = async () => {
-      const maxPrice = await getData();
-      setData(maxPrice);
+        setMaxPrice(await getData());
     };
 
     dateInit();
@@ -26,14 +29,19 @@ const Price = () => {
     <div className={styles.container}>
       <h5>price</h5>
       <p>{data} $</p>
-      <input
-        type='range'
-        name='price'
-        min='0'
-        max={data}
-        // value={data}
-        step='1'
-      />
+        {
+            maxPrice !== undefined ? (
+                <input
+                    type='range'
+                    name='price'
+                    min='0'
+                    max={maxPrice}
+                    value={data}
+                    onChange={(e) => setData(parseInt(e.target.value))}
+                    step='1'
+                />
+            ) : undefined
+        }
     </div>
   );
 };

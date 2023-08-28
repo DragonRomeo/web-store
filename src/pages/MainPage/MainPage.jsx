@@ -1,5 +1,5 @@
 import Path from "~features/Path/Path.jsx";
-import ProductMainSection from "~features/ProductMainSection/ProductMainSection.jsx";
+import Products from "~features/Products/Products.jsx";
 import Header from "./components/Header/Header.jsx";
 
 const MainPage = () => {
@@ -7,7 +7,7 @@ const MainPage = () => {
     <>
       <Header/>
       <Path />
-      <ProductMainSection/>
+      <Products/>
     </>
   );
 }

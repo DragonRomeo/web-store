@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import getCategory from "~core/api/getCategory.js";
+import NavigationButton from "~core/components/NavigationButton/NavigationButton.jsx";
 import styles from './Category.module.scss';
 
 const Category = () => {
@@ -21,9 +22,9 @@ const Category = () => {
     ) : (
       <div className={styles.container}>
         {items.map((el) => (
-          <button className={styles.button} key={items.indexOf(el)}>
+          <NavigationButton key={items.indexOf(el)} className={styles.button}>
             {el}{' '}
-          </button>
+          </NavigationButton>
         ))}
       </div>
     );

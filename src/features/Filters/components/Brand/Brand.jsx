@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import getCategory from "~core/api/getCategory.js";
+import NavigationButton from "~core/components/NavigationButton/NavigationButton.jsx";
 import styles from './Brand.module.scss';
 
 const Brand = () => {
@@ -23,9 +24,9 @@ const Brand = () => {
       <>
         <h5>Brand</h5>
         {data.map((el) => (
-          <button className={styles.button} key={data.indexOf(el)}>
+          <NavigationButton key={data.indexOf(el)}>
             {el}{' '}
-          </button>
+          </NavigationButton>
         ))}
       </>
     );
