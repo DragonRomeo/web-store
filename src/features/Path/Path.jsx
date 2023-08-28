@@ -1,4 +1,4 @@
-import styles from './Path.module.scss'
+import styles from './Path.module.scss';
 
 const Path = () => {
   return (

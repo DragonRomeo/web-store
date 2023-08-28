@@ -1,9 +1,9 @@
-import styles from './Search.module.scss'
+import styles from './Search.module.scss';
 
 const Search = () => {
   return (
     <div className={styles.inputContainer}>
-      <input className={styles.input} type='text' name='text' placeholder='search' />
+      <input className={styles.input} type="text" name="text" placeholder="search" />
     </div>
   );
 };

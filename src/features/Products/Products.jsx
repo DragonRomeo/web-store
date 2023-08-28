@@ -1,5 +1,7 @@
-import Filters from "~features/Filters/Filters.jsx";
-import ProductsContainer from "./components/ProducatsContainer/ProductsContainer.jsx";
+import Filters from '~features/Filters/Filters.jsx';
+
+import ProductsContainer from './components/ProducatsContainer/ProductsContainer.jsx';
+
 import styles from './Products.module.scss';
 
 const Products = () => {

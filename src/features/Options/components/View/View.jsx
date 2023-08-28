@@ -1,8 +1,5 @@
-
 const View = () => {
-  return (
-    <div>View</div>
-  )
-}
+  return <div>View</div>;
+};
 
-export default View
+export default View;
