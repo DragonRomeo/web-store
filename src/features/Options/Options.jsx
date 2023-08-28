@@ -1,6 +1,7 @@
-import CountProducts from "./components/CountProducts/CountProducts.jsx";
-import Sort from "./components/Sort/Sort.jsx";
-import View from "./components/View/View.jsx";
+import CountProducts from './components/CountProducts/CountProducts.jsx';
+import Sort from './components/Sort/Sort.jsx';
+import View from './components/View/View.jsx';
+
 import styles from './Options.module.scss';
 
 const Options = () => {

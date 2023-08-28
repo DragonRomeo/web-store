@@ -1,5 +1,7 @@
-import {useEffect, useState} from 'react';
-import getUrl from "~core/api/getUrl.js";
+import { useEffect, useState } from 'react';
+
+import getUrl from '~core/api/getUrl.js';
+
 import styles from './Price.module.scss';
 
 // TODO: move to core/api
@@ -19,7 +21,7 @@ const Price = () => {
   // TODO: this should be moved to the topmost layer
   useEffect(() => {
     const dateInit = async () => {
-        setMaxPrice(await getData());
+      setMaxPrice(await getData());
     };
 
     dateInit();
@@ -29,19 +31,17 @@ const Price = () => {
     <div className={styles.container}>
       <h5>price</h5>
       <p>{data} $</p>
-        {
-            maxPrice !== undefined ? (
-                <input
-                    type='range'
-                    name='price'
-                    min='0'
-                    max={maxPrice}
-                    value={data}
-                    onChange={(e) => setData(parseInt(e.target.value))}
-                    step='1'
-                />
-            ) : undefined
-        }
+      {maxPrice !== undefined ? (
+        <input
+          type="range"
+          name="price"
+          min="0"
+          max={maxPrice}
+          value={data}
+          onChange={(e) => setData(parseInt(e.target.value))}
+          step="1"
+        />
+      ) : undefined}
     </div>
   );
 };

@@ -1,7 +1,10 @@
-import {useEffect, useState} from 'react';
-import getUrl from "../../../../core/api/getUrl.js";
-import Options from "../../../Options/Options.jsx";
-import CardsContainer from "./components/CardsContainer/CardsContainer.jsx";
+import { useEffect, useState } from 'react';
+
+import getUrl from '../../../../core/api/getUrl.js';
+import Options from '../../../Options/Options.jsx';
+
+import CardsContainer from './components/CardsContainer/CardsContainer.jsx';
+
 import styles from './ProductsContainer.module.scss';
 
 const ProductsContainer = () => {

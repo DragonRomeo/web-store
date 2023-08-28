@@ -1,6 +1,8 @@
-import {useEffect, useState} from 'react';
-import getCategory from "~core/api/getCategory.js";
-import NavigationButton from "~core/components/NavigationButton/NavigationButton.jsx";
+import { useEffect, useState } from 'react';
+
+import getCategory from '~core/api/getCategory.js';
+import NavigationButton from '~core/components/NavigationButton/NavigationButton.tsx';
+
 import styles from './Brand.module.scss';
 
 const Brand = () => {
@@ -24,9 +26,7 @@ const Brand = () => {
       <>
         <h5>Brand</h5>
         {data.map((el) => (
-          <NavigationButton key={data.indexOf(el)}>
-            {el}{' '}
-          </NavigationButton>
+          <NavigationButton key={data.indexOf(el)}>{el} </NavigationButton>
         ))}
       </>
     );

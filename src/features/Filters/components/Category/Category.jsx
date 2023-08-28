@@ -1,6 +1,8 @@
-import {useEffect, useState} from 'react';
-import getCategory from "~core/api/getCategory.js";
-import NavigationButton from "~core/components/NavigationButton/NavigationButton.jsx";
+import { useEffect, useState } from 'react';
+
+import getCategory from '~core/api/getCategory.js';
+import NavigationButton from '~core/components/NavigationButton/NavigationButton.tsx';
+
 import styles from './Category.module.scss';
 
 const Category = () => {
