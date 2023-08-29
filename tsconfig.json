@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
     "paths": {
       "~pages/*": ["./src/pages/*"],
       "~core/*": ["./src/core/*"]
