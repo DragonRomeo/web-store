@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import Card from './components/Card/Card.jsx';
+import { Card } from './components/Card/Card.tsx';
 
 import styles from './CardsContainer.module.scss';
 
-// import getUrl from '../../jsonModules/getUrl';
-
-const CardsContainer = ({ value }) => {
+export const CardsContainer = ({ value }): JSX.Element => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -18,7 +16,7 @@ const CardsContainer = ({ value }) => {
     datesInit();
   }, [value]);
 
-  let content =
+  const content =
     data === null ? (
       <p>Data not found</p>
     ) : (
@@ -32,4 +30,4 @@ const CardsContainer = ({ value }) => {
   return content;
 };
 
-export default CardsContainer;
+// export default CardsContainer;

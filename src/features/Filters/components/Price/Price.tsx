@@ -13,7 +13,7 @@ const getData = async () => {
   return sort[0];
 };
 
-const Price = () => {
+export const Price = (): JSX.Element => {
   const [data, setData] = useState(0);
 
   const [maxPrice, setMaxPrice] = useState();
@@ -45,5 +45,3 @@ const Price = () => {
     </div>
   );
 };
-
-export default Price;

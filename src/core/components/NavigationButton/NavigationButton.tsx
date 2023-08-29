@@ -8,10 +8,10 @@ interface Props {
   children: JSX.Element;
 }
 
-const NavigationButton: FC<Props> = ({ className, children, ...restProps }) => (
+export const NavigationButton: FC<Props> = ({ className, children, ...restProps }) => (
   <button {...restProps} className={cn(styles.container, className)}>
     {children}
   </button>
 );
 
-export default NavigationButton;
+// export default NavigationButton;

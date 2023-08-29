@@ -1,5 +1,5 @@
-import { ReactComponent as CartIcon } from "../../../../assets/icons/icon-cart.svg";
-import { ReactComponent as LoginIcon } from "../../../../assets/icons/icon-login.svg";
+import { ReactComponent as CartIcon } from '../../../../assets/icons/icon-cart.svg';
+import { ReactComponent as LoginIcon } from '../../../../assets/icons/icon-login.svg';
 
 import styles from './Header.module.scss';
 

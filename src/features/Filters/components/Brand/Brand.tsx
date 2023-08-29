@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
 import getCategory from '~core/api/getCategory.js';
-import NavigationButton from '~core/components/NavigationButton/NavigationButton.tsx';
+import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
-import styles from './Brand.module.scss';
+// import styles from './Brand.module.scss';
 
-const Brand = () => {
+export const Brand = (): JSX.Element => {
   const [data, setData] = useState('');
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Brand = () => {
     initData();
   }, []);
 
-  let content =
+  const content =
     data === '' ? (
       ''
     ) : (
@@ -33,5 +33,3 @@ const Brand = () => {
 
   return content;
 };
-
-export default Brand;

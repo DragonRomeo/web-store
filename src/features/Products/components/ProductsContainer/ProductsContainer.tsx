@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
 import getUrl from '../../../../core/api/getUrl.js';
-import Options from '../../../Options/Options.jsx';
+import { Options } from '../../../Options/Options.tsx';
 
-import CardsContainer from './components/CardsContainer/CardsContainer.jsx';
+import { CardsContainer } from './components/CardsContainer/CardsContainer.tsx';
 
 import styles from './ProductsContainer.module.scss';
 
-const ProductsContainer = () => {
+export const ProductsContainer = (): JSX.Element => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ProductsContainer = () => {
     initData();
   }, []);
 
-  let content =
+  const content =
     data === null ? (
       <>
         <Options />
@@ -37,4 +37,4 @@ const ProductsContainer = () => {
   return <div className={styles.container}>{content};</div>;
 };
 
-export default ProductsContainer;
+// export default ProductsContainer;
