@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import getCategory from '~core/api/getCategory.js';
+import {getCategory} from '~core/api/getCategory.js';
 import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
 import styles from './Category.module.scss';
 
-export const Category = () => {
-  const [items, setItems] = useState('');
+export const Category = (): JSX.Element => {
+  const [items, setItems] = useState(null);
 
   useEffect(() => {
     const datesInit = async () => {
@@ -19,7 +19,7 @@ export const Category = () => {
   }, []);
 
   const content =
-    items === '' ? (
+    items === null ? (
       ''
     ) : (
       <div className={styles.container}>
@@ -39,4 +39,3 @@ export const Category = () => {
   );
 };
 
-// export default Category;
