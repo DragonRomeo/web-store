@@ -21,9 +21,6 @@ export const Products: FC<Props> = (): JSX.Element => {
     const initData = async () => {
       const json = await getUrl();
       setData(json);
-      console.log(`data is`);
-      console.log(data);
-      console.log(json)
     };
 
     initData();
@@ -50,6 +47,5 @@ export const Products: FC<Props> = (): JSX.Element => {
       </>
     );
 
-
-    return content;
+  return content;
 };
