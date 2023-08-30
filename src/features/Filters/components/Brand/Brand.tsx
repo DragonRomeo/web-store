@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import {getCategory} from '~core/api/getCategory.ts';
+import { getCategory } from '~core/api/getCategory.ts';
 import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
 // import styles from './Brand.module.scss';

@@ -14,4 +14,3 @@ export const NavigationButton: FC<Props> = ({ className, children, ...restProps 
   </button>
 );
 
-// export default NavigationButton;

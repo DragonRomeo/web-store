@@ -1,16 +1,55 @@
-import { Filters } from '~features/Filters/Filters.tsx';
+import type { FC, JSX } from 'react';
+import { useEffect, useState } from 'react';
+
+import { getUrl } from '~core/api/getUrl.ts';
+
+import { Filters } from '../Filters/Filters.tsx';
 
 import { ProductsContainer } from './components/ProductsContainer/ProductsContainer.tsx';
 
 import styles from './Products.module.scss';
 
-export const Products = (): JSX.Element => (
-  <section className={styles.section}>
-    <div className={styles.container}>
-      <Filters />
-      <ProductsContainer />
-    </div>
-  </section>
-);
+interface Props {
+  className?: string;
+  children: JSX.Element;
+}
 
-// export default Products;
+export const Products: FC<Props> = (): JSX.Element => {
+  const [data, setData] = useState<null | Array<object>>(null);
+
+  useEffect(() => {
+    const initData = async () => {
+      const json = await getUrl();
+      setData(json);
+      console.log(`data is`);
+      console.log(data);
+      console.log(json)
+    };
+
+    initData();
+  }, []);
+
+  const content =
+    data === null ? (
+      <>
+        <section className={styles.section}>
+          <div className={styles.container}>
+            <Filters />
+            <ProductsContainer />
+          </div>
+        </section>
+      </>
+    ) : (
+      <>
+        <section className={styles.section}>
+          <div className={styles.container}>
+            <Filters />
+            <ProductsContainer value={data} />
+          </div>
+        </section>
+      </>
+    );
+
+
+    return content;
+};

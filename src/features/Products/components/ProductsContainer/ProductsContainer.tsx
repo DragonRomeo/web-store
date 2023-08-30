@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import type { FC, JSX } from 'react';
 
 import { getUrl } from '../../../../core/api/getUrl.ts';
 import { Options } from '../../../Options/Options.tsx';
@@ -7,7 +8,13 @@ import { CardsContainer } from './components/CardsContainer/CardsContainer.tsx';
 
 import styles from './ProductsContainer.module.scss';
 
-export const ProductsContainer = (): JSX.Element => {
+interface Props {
+  value?: Array<object>;
+  className?: string;
+  children?: JSX.Element;
+}
+
+export const ProductsContainer: FC<Props> = (): JSX.Element => {
   const [data, setData] = useState(null);
 
   useEffect(() => {

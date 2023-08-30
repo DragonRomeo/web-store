@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import {getUrl} from '~core/api/getUrl.ts';
+import { getUrl } from '~core/api/getUrl.ts';
 
 import styles from './Price.module.scss';
 
