@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import getUrl from '../../../../core/api/getUrl.js';
+import { getUrl } from '../../../../core/api/getUrl.ts';
 import { Options } from '../../../Options/Options.tsx';
 
 import { CardsContainer } from './components/CardsContainer/CardsContainer.tsx';

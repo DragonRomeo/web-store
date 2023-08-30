@@ -12,9 +12,9 @@ const getUnique = (arr: Array<string>): Array<string> => {
   return result;
 };
 
-export const getCategory = async (key: string): Promise<string[] | number> => {
+export const getCategory = async (key: string): Promise<string[]> => {
   const products = await getUrl();
-  const arr = products.map((obj: object) => obj[key]);
+  const arr = products.map((obj: any) => obj[key]);
   const filter = await getUnique(arr);
   return filter;
 };

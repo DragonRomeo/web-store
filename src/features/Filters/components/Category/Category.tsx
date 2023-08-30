@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import {getCategory} from '~core/api/getCategory.js';
+import { getCategory } from '~core/api/getCategory.js';
 import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
 import styles from './Category.module.scss';
 
 export const Category = (): JSX.Element => {
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState<string[] | null>(null);
 
   useEffect(() => {
     const datesInit = async () => {
@@ -25,7 +25,7 @@ export const Category = (): JSX.Element => {
       <div className={styles.container}>
         {items.map((el) => (
           <NavigationButton key={items.indexOf(el)} className={styles.button}>
-            {el}{' '}
+            {el}
           </NavigationButton>
         ))}
       </div>
@@ -38,4 +38,3 @@ export const Category = (): JSX.Element => {
     </div>
   );
 };
-

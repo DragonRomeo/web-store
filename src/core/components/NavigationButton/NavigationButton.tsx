@@ -5,7 +5,7 @@ import styles from './NavigationButton.module.scss';
 
 interface Props {
   className?: string;
-  children: JSX.Element;
+  children: JSX.Element | string;
 }
 
 export const NavigationButton: FC<Props> = ({ className, children, ...restProps }) => (
