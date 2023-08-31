@@ -1,31 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type FC, type JSX } from 'react';
 
-import { getUrl } from '~core/api/getUrl.ts';
+import { getCategory } from '~core/api/getCategory';
 
 import styles from './Price.module.scss';
 
-// TODO: move to core/api
-const getData = async () => {
-  const json = await getUrl();
-  const arr = json.map((el) => el.price);
-  const sort = arr.sort((a, b) => b - a);
-  console.log(sort[0]);
-  return sort[0];
-};
+interface Props {
+  value?: Array<object>;
+  className?: string;
+  children?: JSX.Element;
+}
 
-export const Price = (): JSX.Element => {
-  const [data, setData] = useState(0);
+export const Price: FC<Props> = ({ value }): JSX.Element => {
+  const [data, setData] = useState<number | undefined | Array<object>>(0);
 
   const [maxPrice, setMaxPrice] = useState();
 
   // TODO: this should be moved to the topmost layer
   useEffect(() => {
     const dateInit = async () => {
-      setMaxPrice(await getData());
+      const jsonData = await value;
+      const newData = await getCategory('price', jsonData);
+      console.log(newData);
+
+      setMaxPrice(Math.max(...newData));
     };
 
-    dateInit();
-  }, []);
+    if (value !== undefined) dateInit();
+  }, [value]);
+
+  // const content =
+  // data === 0 || data === undefined ? ('') : ()
 
   return (
     <div className={styles.container}>
@@ -38,7 +42,7 @@ export const Price = (): JSX.Element => {
           min="0"
           max={maxPrice}
           value={data}
-          onChange={(e) => setData((+e.target.value))}
+          onChange={(e) => setData(+e.target.value)}
           step="1"
         />
       ) : undefined}
