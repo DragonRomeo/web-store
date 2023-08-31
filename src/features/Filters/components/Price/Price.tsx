@@ -7,11 +7,11 @@ import styles from './Price.module.scss';
 interface Props {
   value?: Array<object>;
   className?: string;
-  children?: JSX.Element;
+  children?: JSX.Element | Array<object>;
 }
 
 export const Price: FC<Props> = ({ value }): JSX.Element => {
-  const [data, setData] = useState<number | undefined | Array<object>>(0);
+  const [data, setData] = useState<number | Array<object>>(0);
 
   const [maxPrice, setMaxPrice] = useState<number>();
 
