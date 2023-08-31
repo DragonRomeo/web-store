@@ -1,4 +1,4 @@
-import { getUrl } from './getUrl.ts';
+// import { getUrl } from './getUrl.ts';
 
 const getUnique = (arr: Array<string>): Array<string> => {
   const result: Array<string> = [];
@@ -12,8 +12,10 @@ const getUnique = (arr: Array<string>): Array<string> => {
   return result;
 };
 
-export const getCategory = async (key: string): Promise<string[]> => {
-  const products = await getUrl();
+export const getCategory = async (key: string, data: any): Promise<string[]> => {
+  const products = data;
+  // console.log(data);
+  console.log('я работаю')
   const arr = products.map((obj: any) => obj[key]);
   const filter = await getUnique(arr);
   return filter;

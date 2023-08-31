@@ -20,6 +20,7 @@ export const Products: FC<Props> = (): JSX.Element => {
   useEffect(() => {
     const initData = async () => {
       const json = await getUrl();
+      // console.log(json)
       setData(json);
     };
 
@@ -40,7 +41,7 @@ export const Products: FC<Props> = (): JSX.Element => {
       <>
         <section className={styles.section}>
           <div className={styles.container}>
-            <Filters />
+            <Filters value={data}/>
             <ProductsContainer value={data} />
           </div>
         </section>

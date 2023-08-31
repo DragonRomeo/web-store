@@ -19,6 +19,7 @@ export const Filters: FC<Props> = ({ value }): JSX.Element => {
   useEffect(() => {
     const initData = async () => {
       const transferData = await value;
+      // console.log(transferData)
       setData(transferData);
     };
 
@@ -38,7 +39,7 @@ export const Filters: FC<Props> = ({ value }): JSX.Element => {
         <Search />
         <Category value={data} />
         <Price />
-        <Brand />
+        <Brand value={data} />
       </>
     );
 
