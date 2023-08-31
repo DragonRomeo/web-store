@@ -6,5 +6,3 @@ export const Path = (): JSX.Element => (
   </section>
 );
 // Div will take a current path for some products in feature.
-
-// export default Path;

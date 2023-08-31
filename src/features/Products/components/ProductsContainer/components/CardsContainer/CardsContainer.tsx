@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react';
+import type { FC, JSX } from 'react';
 
 import { Card } from './components/Card/Card.tsx';
 
 import styles from './CardsContainer.module.scss';
 
-export const CardsContainer = ({ value }): JSX.Element => {
-  const [data, setData] = useState(null);
+interface Props {
+  value?: Array<object>;
+  className?: string;
+  children?: JSX.Element;
+}
+
+export const CardsContainer: FC<Props> = ({ value }): JSX.Element => {
+  const [data, setData] = useState<null | undefined | Array<object>>(null);
 
   useEffect(() => {
     if (!value) return;
@@ -17,7 +24,7 @@ export const CardsContainer = ({ value }): JSX.Element => {
   }, [value]);
 
   const content =
-    data === null ? (
+    data === null || data === undefined ? (
       <p>Data not found</p>
     ) : (
       <div className={styles.container}>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { FC, JSX } from 'react';
 
-import { getUrl } from '../../../../core/api/getUrl.ts';
 import { Options } from '../../../Options/Options.tsx';
 
 import { CardsContainer } from './components/CardsContainer/CardsContainer.tsx';
@@ -14,19 +13,17 @@ interface Props {
   children?: JSX.Element;
 }
 
-export const ProductsContainer: FC<Props> = (): JSX.Element => {
-  const [data, setData] = useState(null);
+export const ProductsContainer: FC<Props> = ({ value }): JSX.Element => {
+  const [data, setData] = useState<null | undefined | Array<object>>(null);
 
   useEffect(() => {
     const initData = async () => {
-      const json = await getUrl();
-      setData(json);
-      console.log(`data is`);
-      console.log(data);
+      const transferData = await value;
+      setData(transferData);
     };
 
     initData();
-  }, []);
+  }, [value]);
 
   const content =
     data === null ? (
@@ -43,5 +40,3 @@ export const ProductsContainer: FC<Props> = (): JSX.Element => {
 
   return <div className={styles.container}>{content};</div>;
 };
-
-// export default ProductsContainer;

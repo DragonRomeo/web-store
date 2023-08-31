@@ -1,3 +1,5 @@
+import { useState, type FC, type JSX, useEffect } from 'react';
+
 import { Brand } from './components/Brand/Brand.tsx';
 import { Category } from './components/Category/Category.tsx';
 import { Price } from './components/Price/Price.tsx';
@@ -5,13 +7,40 @@ import { Search } from './components/Search/Search.tsx';
 
 import styles from './Filters.module.scss';
 
-export const Filters = (): JSX.Element => (
-  <div className={styles.container}>
-    <Search />
-    <Category />
-    <Price />
-    <Brand />
-  </div>
-);
+interface Props {
+  value?: Array<object>;
+  className?: string;
+  children?: JSX.Element;
+}
 
-// export default Filters;
+export const Filters: FC<Props> = ({ value }): JSX.Element => {
+  const [data, setData] = useState<null | undefined | Array<object>>(null);
+
+  useEffect(() => {
+    const initData = async () => {
+      const transferData = await value;
+      setData(transferData);
+    };
+
+    initData();
+  }, [value]);
+
+  const content =
+    data === null ? (
+      <>
+        <Search />
+        <Category />
+        <Price />
+        <Brand />
+      </>
+    ) : (
+      <>
+        <Search />
+        <Category value={data} />
+        <Price />
+        <Brand />
+      </>
+    );
+
+  return <div className={styles.container}>{content}</div>;
+};

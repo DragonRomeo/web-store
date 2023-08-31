@@ -38,7 +38,7 @@ export const Price = (): JSX.Element => {
           min="0"
           max={maxPrice}
           value={data}
-          onChange={(e) => setData(parseInt(e.target.value))}
+          onChange={(e) => setData((+e.target.value))}
           step="1"
         />
       ) : undefined}
