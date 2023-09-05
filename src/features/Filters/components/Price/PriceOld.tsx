@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// import { useEffect, useState } from 'react';
 
-import { getUrl } from '~core/api/getUrl.ts';
+// import { getUrl } from '~core/api/getUrl.ts';
 
-import styles from './Price.module.scss';
+// import styles from './Price.module.scss';
 
-// TODO: move to core/api
+// // TODO: move to core/api
 // const getData = async () => {
 //   const json = await getUrl();
 //   const arr = json.map((el) => el.price);
@@ -13,35 +14,35 @@ import styles from './Price.module.scss';
 //   return sort[0];
 // };
 
-export const Price = (): JSX.Element => {
-  const [data, setData] = useState(0);
+// export const Price = (): JSX.Element => {
+//   const [data, setData] = useState(0);
 
-  const [maxPrice, setMaxPrice] = useState();
+//   const [maxPrice, setMaxPrice] = useState();
 
-  // TODO: this should be moved to the topmost layer
-  useEffect(() => {
-    const dateInit = async () => {
-      setMaxPrice(await getData());
-    };
+//   // TODO: this should be moved to the topmost layer
+//   useEffect(() => {
+//     const dateInit = async () => {
+//       setMaxPrice(await getData());
+//     };
 
-    dateInit();
-  }, []);
+//     dateInit();
+//   }, []);
 
-  return (
-    <div className={styles.container}>
-      <h5>price</h5>
-      <p>{data} $</p>
-      {maxPrice !== undefined ? (
-        <input
-          type="range"
-          name="price"
-          min="0"
-          max={maxPrice}
-          value={data}
-          onChange={(e) => setData(+(e.target.value))}
-          step="1"
-        />
-      ) : undefined}
-    </div>
-  );
-};
+//   return (
+//     <div className={styles.container}>
+//       <h5>price</h5>
+//       <p>{data} $</p>
+//       {maxPrice !== undefined ? (
+//         <input
+//           type="range"
+//           name="price"
+//           min="0"
+//           max={maxPrice}
+//           value={data}
+//           onChange={(e) => setData(+e.target.value)}
+//           step="1"
+//         />
+//       ) : undefined}
+//     </div>
+//   );
+// };

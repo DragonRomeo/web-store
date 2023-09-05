@@ -1,18 +1,21 @@
-const getUnique = (arr: Array<string>): Array<string> => {
-  const result: Array<string> = [];
+import type { Product } from './getUrl';
 
-  for (const str of arr) {
-    if (!result.includes(str)) {
-      result.push(str);
+const getUnique = (arr: Array<string | number>): Array<string | number> => {
+  const result: Array<string | number> = [];
+
+  for (const key of arr) {
+    if (!result.includes(key)) {
+      result.push(key);
     }
   }
 
   return result;
 };
 
-export const getCategory = async (key: string, data: any): Promise<string[]> => {
-  const products = data;
-  const arr = products.map((obj: any) => obj[key]);
-  const filter = await getUnique(arr);
-  return filter;
+export const getCategory = async (key: keyof Product, data: Array<Product>): Promise<Array<string | number>> => {
+  const arr: Array<string | number> = data.map((obj) => obj[key]);
+
+  const result = await getUnique(arr);
+
+  return result;
 };

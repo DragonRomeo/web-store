@@ -33,9 +33,7 @@ export const Brand: FC<Props> = ({ value }): JSX.Element => {
       <>
         <h5>Brand</h5>
         {data.map((el) => (
-          <NavigationButton key={data.indexOf(el)}>
-            {el}
-             </NavigationButton>
+          <NavigationButton key={data.indexOf(el)}>{el}</NavigationButton>
         ))}
       </>
     );

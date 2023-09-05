@@ -38,7 +38,7 @@ export const Filters: FC<Props> = ({ value }): JSX.Element => {
       <>
         <Search />
         <Category value={data} />
-        <Price value={data}/>
+        <Price value={data} />
         <Brand value={data} />
       </>
     );
