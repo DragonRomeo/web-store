@@ -8,17 +8,28 @@ interface Props {
   value?: Product;
 }
 
-export const Card: FC<Props> = ({ value }): JSX.Element => (
-  <div className={styles.card} key={value.id}>
-    <img src={value.images[0]} width="300px" height="300px" alt="img" />
-    <div className={styles.info}>
-      <p>{value.title}</p>
-      <p>
-        {new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-        }).format(value.price)}
-      </p>
-    </div>
-  </div>
-);
+export const Card: FC<Props> = ({ value }): JSX.Element => {
+  /* this is fix for .format(numb.price). i dont use value cause it can get
+  undefined value and .format can work only with int or bigInt */
+  const numb = value !== undefined ? value : { price: 0 };
+
+  const content =
+    typeof value === undefined ? (
+      <></>
+    ) : (
+      <div className={styles.card} key={value?.id}>
+        <img src={value?.images[0]} width="300px" height="300px" alt="img" />
+        <div className={styles.info}>
+          <p>{value?.title}</p>
+          <p>
+            {new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            }).format(numb.price)}
+          </p>
+        </div>
+      </div>
+    );
+
+  return content;
+};
