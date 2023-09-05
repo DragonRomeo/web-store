@@ -5,13 +5,13 @@ import { getUrl } from '~core/api/getUrl.ts';
 import styles from './Price.module.scss';
 
 // TODO: move to core/api
-const getData = async () => {
-  const json = await getUrl();
-  const arr = json.map((el) => el.price);
-  const sort = arr.sort((a, b) => b - a);
-  console.log(sort[0]);
-  return sort[0];
-};
+// const getData = async () => {
+//   const json = await getUrl();
+//   const arr = json.map((el) => el.price);
+//   const sort = arr.sort((a, b) => b - a);
+//   console.log(sort[0]);
+//   return sort[0];
+// };
 
 export const Price = (): JSX.Element => {
   const [data, setData] = useState(0);

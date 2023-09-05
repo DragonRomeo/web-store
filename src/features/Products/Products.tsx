@@ -22,6 +22,7 @@ export const Products: FC<Props> = (): JSX.Element => {
       const json = await getUrl();
       // console.log(json)
       setData(json);
+      console.log('initData')
     };
 
     initData();

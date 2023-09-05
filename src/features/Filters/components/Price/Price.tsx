@@ -7,7 +7,7 @@ import styles from './Price.module.scss';
 interface Props {
   value?: Array<object>;
   className?: string;
-  children?: JSX.Element | Array<object>;
+  children?: JSX.Element | React.ComponentType;
 }
 
 export const Price: FC<Props> = ({ value }): JSX.Element => {
