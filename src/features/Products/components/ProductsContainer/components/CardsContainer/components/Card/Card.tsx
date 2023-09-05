@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const Card: FC<Props> = ({ value }): JSX.Element => {
-  /* this is fix for .format(numb.price). i dont use value cause it can get
+  /* this is fix for .format(numb.price). i don't use value cause it can get
   undefined value and .format can work only with int or bigInt */
   const numb = value !== undefined ? value : { price: 0 };
 
