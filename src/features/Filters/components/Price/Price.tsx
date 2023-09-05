@@ -27,9 +27,6 @@ export const Price: FC<Props> = ({ value }): JSX.Element => {
     if (value !== undefined) dateInit();
   }, [value]);
 
-  // const content =
-  // data === 0 || data === undefined ? ('') : ()
-
   return (
     <div className={styles.container}>
       <h5>price</h5>
