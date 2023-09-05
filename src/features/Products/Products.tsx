@@ -1,6 +1,7 @@
 import type { FC, JSX } from 'react';
 import { useEffect, useState } from 'react';
 
+import type { Product } from '~core/api/getUrl';
 import { getUrl } from '~core/api/getUrl.ts';
 
 import { Filters } from '../Filters/Filters.tsx';
@@ -15,7 +16,7 @@ interface Props {
 }
 
 export const Products: FC<Props> = (): JSX.Element => {
-  const [data, setData] = useState<null | Array<object>>(null);
+  const [data, setData] = useState<null | Array<Product>>(null);
 
   /* twice call to server in net-work not a bug.
    This is happens only in dev-mode because of <StrictMode>

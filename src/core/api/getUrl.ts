@@ -16,7 +16,7 @@ export interface Product {
   images: Array<string>;
 }
 
-export const getUrl = async (): Promise<Array<object>> => {
+export const getUrl = async (): Promise<Array<Product>> => {
   const url = 'https://dummyjson.com/products';
   const res = await fetch(url);
   const json: Json = await res.json();
