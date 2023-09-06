@@ -27,8 +27,7 @@ export const CardsContainer: FC<Props> = ({ value }): JSX.Element => {
 
   const content =
     data === null || data === undefined ? (
-      // TODO: Delete this
-      <p>Data not found</p>
+      <></>
     ) : (
       <div className={styles.container}>
         {data.map((el) => (
@@ -39,5 +38,3 @@ export const CardsContainer: FC<Props> = ({ value }): JSX.Element => {
 
   return content;
 };
-
-// export default CardsContainer;
