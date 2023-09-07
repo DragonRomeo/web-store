@@ -4,23 +4,22 @@ import { Brand } from './components/Brand/Brand.tsx';
 import { Category } from './components/Category/Category.tsx';
 import { Price } from './components/Price/Price.tsx';
 import { Search } from './components/Search/Search.tsx';
+import type { Product } from '~core/api/getUrl';
 
 import styles from './Filters.module.scss';
 
 interface Props {
-  value?: Array<object>;
+  value?: Array<Product>;
   className?: string;
   children?: JSX.Element;
 }
 
 export const Filters: FC<Props> = ({ value }): JSX.Element => {
-  const [data, setData] = useState<null | undefined | Array<object>>(null);
+  const [data, setData] = useState<null | Array<Product>>(null);
 
   useEffect(() => {
     const initData = async () => {
-      const transferData = await value;
-      // console.log(transferData)
-      setData(transferData);
+      if (value !== undefined) setData(value);
     };
 
     initData();

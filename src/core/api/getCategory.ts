@@ -2,11 +2,16 @@ import type { Product } from './getUrl';
 
 export const getCategory = async (
   key: keyof Product,
-  data: Array<Product>,
-): Promise<Array<string | number | string[]>> => {
-  const arr: Array<string | number | string[]> = data.map((obj) => obj[key]);
+  data: Array<Product> | undefined,
+): Promise<Array<string | number | Array<string>> | undefined> => {
+  let result;
+  if(data !== undefined){
+    const arr: Array<string | number | Array<string>> = data.map((obj) => obj[key]);
 
-  const result = Array.from(new Set(arr));
-
+    result = Array.from(new Set(arr));
+  } else {
+    result = undefined;
+  }
+  
   return result;
 };

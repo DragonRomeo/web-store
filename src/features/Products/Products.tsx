@@ -25,7 +25,7 @@ export const Products: FC<Props> = (): JSX.Element => {
   useEffect(() => {
     const initData = async () => {
       const json = await getUrl();
-      setData(json);
+     if(json !== undefined) setData(json);
     };
 
     initData();
