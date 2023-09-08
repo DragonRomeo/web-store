@@ -20,7 +20,7 @@ export const Card: FC<Props> = ({ value }): JSX.Element => {
       <img className={styles.img} src={value?.thumbnail} width="300px" height="300px" alt="img" />
       <div className={styles.info}>
         <p>{value?.title}</p>
-        <p>
+        <p className={styles.price}>
           {new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
