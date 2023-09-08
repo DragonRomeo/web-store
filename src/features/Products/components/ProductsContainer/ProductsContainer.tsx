@@ -20,8 +20,7 @@ export const ProductsContainer: FC<Props> = ({ value }): JSX.Element => {
 
   useEffect(() => {
     const initData = async () => {
-      const transferData = await value;
-      setData(transferData);
+      setData(value);
     };
 
     initData();

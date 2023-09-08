@@ -1,10 +1,12 @@
 import { useState, type FC, type JSX, useEffect } from 'react';
 
+import type { Product } from '~core/api/getUrl';
+
 import { Brand } from './components/Brand/Brand.tsx';
 import { Category } from './components/Category/Category.tsx';
 import { Price } from './components/Price/Price.tsx';
 import { Search } from './components/Search/Search.tsx';
-import type { Product } from '~core/api/getUrl';
+
 
 import styles from './Filters.module.scss';
 
@@ -15,7 +17,7 @@ interface Props {
 }
 
 export const Filters: FC<Props> = ({ value }): JSX.Element => {
-  const [data, setData] = useState<null | Array<Product>>(null);
+  const [data, setData] = useState<Array<Product>>();
 
   useEffect(() => {
     const initData = async () => {
@@ -25,22 +27,12 @@ export const Filters: FC<Props> = ({ value }): JSX.Element => {
     initData();
   }, [value]);
 
-  const content =
-    data === null ? (
-      <>
-        <Search />
-        <Category />
-        <Price />
-        <Brand />
-      </>
-    ) : (
-      <>
-        <Search />
-        <Category value={data} />
-        <Price value={data} />
-        <Brand value={data} />
-      </>
-    );
-
-  return <div className={styles.container}>{content}</div>;
+  return (
+    <div className={styles.container}>
+      <Search />
+      <Category value={data} />
+      <Price transferValue={data} />
+      <Brand value={data} />
+    </div>
+  );
 };

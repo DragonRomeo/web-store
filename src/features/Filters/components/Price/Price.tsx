@@ -1,44 +1,48 @@
 import { useEffect, useState, type FC, type JSX } from 'react';
 
 import { getCategory } from '~core/api/getCategory';
+import type { Product } from '~core/api/getUrl';
 
 import styles from './Price.module.scss';
 
 interface Props {
-  value?: Array<object>;
+  transferValue?: Array<Product>;
   className?: string;
-  children?: JSX.Element | React.ComponentType;
+  children?: JSX.Element;
+  // number: number;
 }
 
-export const Price: FC<Props> = ({ value }): JSX.Element => {
-  const [data, setData] = useState<number | Array<object>>(0);
+export const Price: FC<Props> = ({ transferValue }): JSX.Element => {
+  const [value, setValue] = useState<number>(0);
 
   const [maxPrice, setMaxPrice] = useState<number>();
 
   // TODO: this should be moved to the topmost layer
   useEffect(() => {
     const dateInit = async () => {
-      const jsonData = await value;
-      const newData = await getCategory('price', jsonData);
-      const arr: number[] = newData.map((el) => +el);
-      setMaxPrice(Math.max(...arr));
+      const newData = await getCategory('price', transferValue);
+      const arr: number[] | undefined = newData !== undefined ? newData.map((el) => +el) : undefined;
+      if (arr !== undefined) {
+        setMaxPrice(Math.max(...arr))
+        setValue(Math.max(...arr));
+      }
     };
 
-    if (value !== undefined) dateInit();
-  }, [value]);
+    if (transferValue !== undefined) dateInit();
+  }, [transferValue]);
 
   return (
     <div className={styles.container}>
       <h5>price</h5>
-      <p>{data} $</p>
+      <p>{value} $</p>
       {maxPrice !== undefined ? (
         <input
           type="range"
           name="price"
           min="0"
           max={maxPrice}
-          value={data}
-          onChange={(e) => setData(+e.target.value)}
+          value={value}
+          onChange={(e) => setValue(+e.target.value)}
           step="1"
         />
       ) : undefined}

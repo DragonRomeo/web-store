@@ -19,7 +19,7 @@ export const CardsContainer: FC<Props> = ({ value }): JSX.Element => {
   useEffect(() => {
     if (!value) return;
     const datesInit = async () => {
-      setData(await value);
+      setData(value);
     };
 
     datesInit();
