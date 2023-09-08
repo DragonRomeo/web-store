@@ -17,7 +17,7 @@ export const Card: FC<Props> = ({ value }): JSX.Element => {
     <></>
   ) : (
     <div className={styles.card} key={value?.id}>
-      <img src={value?.images[0]} width="300px" height="300px" alt="img" />
+      <img className={styles.img} src={value?.thumbnail} width="300px" height="300px" alt="img" />
       <div className={styles.info}>
         <p>{value?.title}</p>
         <p>
