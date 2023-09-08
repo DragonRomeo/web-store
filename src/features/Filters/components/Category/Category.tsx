@@ -1,9 +1,8 @@
 import { useEffect, useState, type FC, type JSX } from 'react';
 
 import { getCategory } from '~core/api/getCategory';
-import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
-
 import type { Product } from '~core/api/getUrl';
+import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
 import styles from './Category.module.scss';
 
@@ -14,7 +13,7 @@ interface Props {
 }
 
 export const Category: FC<Props> = ({ value }): JSX.Element => {
-  const [items, setItems] = useState<null | undefined | Array<string | number | string[]>>(null);
+  const [items, setItems] = useState<undefined | Array<string | number | string[]>>();
 
   useEffect(() => {
     const datesInit = async () => {
@@ -25,7 +24,7 @@ export const Category: FC<Props> = ({ value }): JSX.Element => {
   }, [value]);
 
   const content =
-    items === null || items === undefined ? (
+    items === undefined ? (
       ''
     ) : (
       <div className={styles.container}>

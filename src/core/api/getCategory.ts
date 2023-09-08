@@ -5,13 +5,13 @@ export const getCategory = async (
   data: Array<Product> | undefined,
 ): Promise<Array<string | number | Array<string>> | undefined> => {
   let result;
-  if(data !== undefined){
+  if (data !== undefined) {
     const arr: Array<string | number | Array<string>> = data.map((obj) => obj[key]);
 
     result = Array.from(new Set(arr));
   } else {
     result = undefined;
   }
-  
+
   return result;
 };

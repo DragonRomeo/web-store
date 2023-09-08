@@ -7,7 +7,6 @@ import { Category } from './components/Category/Category.tsx';
 import { Price } from './components/Price/Price.tsx';
 import { Search } from './components/Search/Search.tsx';
 
-
 import styles from './Filters.module.scss';
 
 interface Props {

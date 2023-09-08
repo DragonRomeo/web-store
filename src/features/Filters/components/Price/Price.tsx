@@ -23,7 +23,7 @@ export const Price: FC<Props> = ({ transferValue }): JSX.Element => {
       const newData = await getCategory('price', transferValue);
       const arr: number[] | undefined = newData !== undefined ? newData.map((el) => +el) : undefined;
       if (arr !== undefined) {
-        setMaxPrice(Math.max(...arr))
+        setMaxPrice(Math.max(...arr));
         setValue(Math.max(...arr));
       }
     };
