@@ -5,14 +5,13 @@ import styles from './NavigationButton.module.scss';
 
 interface Props {
   className?: string;
-  children: JSX.Element;
-  value: string | number;
+  children: JSX.Element | string | number | Array<string>;
+  // value: string | number;
 }
 
-export const NavigationButton: FC<Props> = ({ className, children, value, ...restProps }) => (
+export const NavigationButton: FC<Props> = ({ className, children, ...restProps }) => (
   <button {...restProps} className={cn(styles.container, className)}>
     {' '}
-    {value}
     {children}
   </button>
 );

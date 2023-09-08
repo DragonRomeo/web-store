@@ -13,23 +13,20 @@ export const Card: FC<Props> = ({ value }): JSX.Element => {
   undefined value and .format can work only with int or bigInt */
   const numb = value !== undefined ? value : { price: 0 };
 
-  const content =
-    typeof value === undefined ? (
-      <></>
-    ) : (
-      <div className={styles.card} key={value?.id}>
-        <img src={value?.images[0]} width="300px" height="300px" alt="img" />
-        <div className={styles.info}>
-          <p>{value?.title}</p>
-          <p>
-            {new Intl.NumberFormat('en-US', {
-              style: 'currency',
-              currency: 'USD',
-            }).format(numb.price)}
-          </p>
-        </div>
+  return typeof value === undefined ? (
+    <></>
+  ) : (
+    <div className={styles.card} key={value?.id}>
+      <img src={value?.images[0]} width="300px" height="300px" alt="img" />
+      <div className={styles.info}>
+        <p>{value?.title}</p>
+        <p>
+          {new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          }).format(numb.price)}
+        </p>
       </div>
-    );
-
-  return content;
+    </div>
+  );
 };

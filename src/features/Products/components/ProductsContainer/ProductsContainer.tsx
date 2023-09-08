@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const ProductsContainer: FC<Props> = ({ value }): JSX.Element => {
-  const [data, setData] = useState<null | undefined | Array<Product>>(null);
+  const [data, setData] = useState<undefined | Array<Product>>();
 
   useEffect(() => {
     const initData = async () => {
@@ -27,18 +27,10 @@ export const ProductsContainer: FC<Props> = ({ value }): JSX.Element => {
     initData();
   }, [value]);
 
-  const content =
-    data === null ? (
-      <>
-        <Options />
-        <CardsContainer />
-      </>
-    ) : (
-      <>
-        <Options />
-        <CardsContainer value={data} />
-      </>
-    );
-
-  return <div className={styles.container}>{content};</div>;
+  return (
+    <div className={styles.container}>
+      <Options />
+      <CardsContainer value={data} />
+    </div>
+  );
 };

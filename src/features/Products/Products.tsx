@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const Products: FC<Props> = (): JSX.Element => {
-  const [data, setData] = useState<null | Array<Product>>(null);
+  const [data, setData] = useState<Array<Product>>();
 
   /* twice call to server in net-work not a bug.
    This is happens only in dev-mode because of <StrictMode>
@@ -25,32 +25,20 @@ export const Products: FC<Props> = (): JSX.Element => {
   useEffect(() => {
     const initData = async () => {
       const json = await getUrl();
-     if(json !== undefined) setData(json);
+      if (json !== undefined) setData(json);
     };
 
     initData();
   }, []);
 
-  const content =
-    data === null ? (
-      <>
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <Filters />
-            <ProductsContainer />
-          </div>
-        </section>
-      </>
-    ) : (
-      <>
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <Filters value={data} />
-            <ProductsContainer value={data} />
-          </div>
-        </section>
-      </>
-    );
-
-  return content;
+  return (
+    <>
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <Filters value={data} />
+          <ProductsContainer value={data} />
+        </div>
+      </section>
+    </>
+  );
 };
