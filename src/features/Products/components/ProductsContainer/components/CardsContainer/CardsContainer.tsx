@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const CardsContainer: FC<Props> = ({ value }): JSX.Element => {
-  const [data, setData] = useState<null | undefined | Array<Product>>(null);
+  const [data, setData] = useState<undefined | Array<Product>>();
 
   useEffect(() => {
     if (!value) return;
@@ -26,7 +26,7 @@ export const CardsContainer: FC<Props> = ({ value }): JSX.Element => {
   }, [value]);
 
   const content =
-    data === null || data === undefined ? (
+    data === undefined ? (
       <></>
     ) : (
       <div className={styles.container}>
