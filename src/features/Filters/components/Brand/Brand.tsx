@@ -23,7 +23,7 @@ export const Brand: FC<Props> = ({ value }) => {
       setData(brands);
     };
 
-    if (value !== undefined) initData();
+    if (value) initData();
   }, [value]);
 
   const content = !data ? (

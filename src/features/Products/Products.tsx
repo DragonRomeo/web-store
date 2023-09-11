@@ -25,7 +25,7 @@ export const Products: FC<Props> = () => {
   useEffect(() => {
     const initData = async () => {
       const response = await getUrl();
-      if (response !== undefined) setData(response);
+      if (response) setData(response);
     };
 
     initData();
