@@ -24,18 +24,17 @@ export const Category: FC<Props> = ({ value }) => {
     if (value !== undefined) datesInit();
   }, [value]);
 
-  const content =
-    !items ? (
-      ''
-    ) : (
-      <div className={styles.container}>
-        {items.map((el) => (
-          <NavigationButton key={items.indexOf(el)} className={styles.button}>
-            {el}
-          </NavigationButton>
-        ))}
-      </div>
-    );
+  const content = !items ? (
+    ''
+  ) : (
+    <div className={styles.container}>
+      {items.map((el) => (
+        <NavigationButton key={items.indexOf(el)} className={styles.button}>
+          {el}
+        </NavigationButton>
+      ))}
+    </div>
+  );
 
   return (
     <div className={styles.container}>

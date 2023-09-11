@@ -28,14 +28,14 @@ export const Price: FC<Props> = ({ transferValue }) => {
       }
     };
 
-    if (transferValue !== undefined) dateInit();
+    if (transferValue) dateInit();
   }, [transferValue]);
 
   return (
     <div className={styles.container}>
       <h5>price</h5>
       <p>{value} $</p>
-      {maxPrice !== undefined ? (
+      {maxPrice ? (
         <input
           type="range"
           name="price"
