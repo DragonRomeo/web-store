@@ -25,7 +25,7 @@ export const Category: FC<Props> = ({ value }) => {
   }, [value]);
 
   const content =
-    items === undefined ? (
+    !items ? (
       ''
     ) : (
       <div className={styles.container}>

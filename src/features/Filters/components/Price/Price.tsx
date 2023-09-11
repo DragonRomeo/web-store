@@ -15,14 +15,14 @@ interface Props {
 export const Price: FC<Props> = ({ transferValue }) => {
   const [value, setValue] = useState(0);
 
-  const [maxPrice, setMaxPrice] = useState();
+  const [maxPrice, setMaxPrice] = useState<number>();
 
   // TODO: this should be moved to the topmost layer
   useEffect(() => {
     const dateInit = async () => {
       const newData = await getCategory('price', transferValue);
-      const arr: number[] | undefined = newData !== undefined ? newData.map((el) => +el) : undefined;
-      if (arr !== undefined) {
+      const arr: number[] | undefined = newData?.map((item) => +item);
+      if (arr) {
         setMaxPrice(Math.max(...arr));
         setValue(Math.max(...arr));
       }
