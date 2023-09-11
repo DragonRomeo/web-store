@@ -14,12 +14,11 @@ interface Props {
 }
 
 export const Brand: FC<Props> = ({ value }) => {
-  const [data, setData] = useState<undefined | Array<Product>>();
+  const [data, setData] = useState<undefined | Array<string | number | Array<string>>>();
 
   useEffect(() => {
     const initData = async () => {
-      const json = await value;
-      const brands = await getCategory('brand', json);
+      const brands = await getCategory('brand', value);
 
       setData(brands);
     };
@@ -27,17 +26,16 @@ export const Brand: FC<Props> = ({ value }) => {
     if (value !== undefined) initData();
   }, [value]);
 
-  const content =
-    data === null || data === undefined ? (
-      ''
-    ) : (
-      <>
-        <h5>Brand</h5>
-        {data.map((el) => (
-          <NavigationButton key={data.indexOf(el)}>{el}</NavigationButton>
-        ))}
-      </>
-    );
+  const content = !data ? (
+    ''
+  ) : (
+    <>
+      <h5>Brand</h5>
+      {data.map((item) => (
+        <NavigationButton key={item}>{item}</NavigationButton>
+      ))}
+    </>
+  );
 
   return content;
 };
