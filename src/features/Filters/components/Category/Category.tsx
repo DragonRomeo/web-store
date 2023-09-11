@@ -12,7 +12,7 @@ interface Props {
   children?: JSX.Element;
 }
 
-export const Category: FC<Props> = ({ value }): JSX.Element => {
+export const Category: FC<Props> = ({ value }) => {
   const [items, setItems] = useState<undefined | Array<string | number | string[]>>();
 
   useEffect(() => {

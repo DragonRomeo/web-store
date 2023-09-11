@@ -15,7 +15,7 @@ interface Props {
   children?: JSX.Element;
 }
 
-export const ProductsContainer: FC<Props> = ({ value }): JSX.Element => {
+export const ProductsContainer: FC<Props> = ({ value }) => {
   const [data, setData] = useState<undefined | Array<Product>>();
 
   useEffect(() => {

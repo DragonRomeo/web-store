@@ -1,4 +1,5 @@
-import { useEffect, useState, type FC, type JSX } from 'react';
+import { useEffect, useState } from 'react';
+import { type FC, type JSX } from 'react';
 
 import { getCategory } from '~core/api/getCategory';
 import type { Product } from '~core/api/getUrl';
@@ -11,10 +12,10 @@ interface Props {
   children?: JSX.Element;
 }
 
-export const Price: FC<Props> = ({ transferValue }): JSX.Element => {
-  const [value, setValue] = useState<number>(0);
+export const Price: FC<Props> = ({ transferValue }) => {
+  const [value, setValue] = useState(0);
 
-  const [maxPrice, setMaxPrice] = useState<number>();
+  const [maxPrice, setMaxPrice] = useState();
 
   // TODO: this should be moved to the topmost layer
   useEffect(() => {

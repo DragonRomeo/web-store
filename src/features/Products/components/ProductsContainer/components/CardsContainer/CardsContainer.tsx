@@ -13,7 +13,7 @@ interface Props {
   children?: JSX.Element;
 }
 
-export const CardsContainer: FC<Props> = ({ value }): JSX.Element => {
+export const CardsContainer: FC<Props> = ({ value }) => {
   const [data, setData] = useState<undefined | Array<Product>>();
 
   useEffect(() => {

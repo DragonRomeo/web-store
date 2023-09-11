@@ -15,7 +15,7 @@ interface Props {
   children: JSX.Element;
 }
 
-export const Products: FC<Props> = (): JSX.Element => {
+export const Products: FC<Props> = () => {
   const [data, setData] = useState<Array<Product>>();
 
   /* twice call to server in net-work not a bug.
