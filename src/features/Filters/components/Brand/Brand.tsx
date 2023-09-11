@@ -1,4 +1,5 @@
-import { useEffect, useState, type FC, type JSX } from 'react';
+import { useEffect, useState } from 'react';
+import type { FC, JSX } from 'react';
 
 import { getCategory } from '~core/api/getCategory.ts';
 import type { Product } from '~core/api/getUrl';

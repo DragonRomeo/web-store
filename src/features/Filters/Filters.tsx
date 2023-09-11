@@ -1,4 +1,5 @@
-import { useState, type FC, type JSX, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import type { FC, JSX } from 'react';
 
 import type { Product } from '~core/api/getUrl';
 
