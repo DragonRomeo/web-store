@@ -11,7 +11,6 @@ interface Props {
 
 export const NavigationButton: FC<Props> = ({ className, children, ...restProps }) => (
   <button {...restProps} className={cn(styles.container, className)}>
-    {' '}
     {children}
   </button>
 );
