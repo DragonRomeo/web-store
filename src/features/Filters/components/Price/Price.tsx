@@ -9,7 +9,6 @@ interface Props {
   transferValue?: Array<Product>;
   className?: string;
   children?: JSX.Element;
-  // number: number;
 }
 
 export const Price: FC<Props> = ({ transferValue }): JSX.Element => {

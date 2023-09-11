@@ -1,24 +1,24 @@
 import { useEffect, useState, type FC, type JSX } from 'react';
 
 import { getCategory } from '~core/api/getCategory.ts';
+import type { Product } from '~core/api/getUrl';
 import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
 // import styles from './Brand.module.scss';
 
 interface Props {
-  value?: Array<object>;
+  value?: Array<Product>;
   className?: string;
   children?: JSX.Element;
 }
 
 export const Brand: FC<Props> = ({ value }): JSX.Element => {
-  const [data, setData] = useState<null | undefined | Array<object>>(null);
+  const [data, setData] = useState<undefined | Array<Product>>();
 
   useEffect(() => {
     const initData = async () => {
       const json = await value;
       const brands = await getCategory('brand', json);
-      // console.log(brands);
 
       setData(brands);
     };

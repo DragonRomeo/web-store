@@ -6,7 +6,6 @@ import styles from './NavigationButton.module.scss';
 interface Props {
   className?: string;
   children: JSX.Element | string | number | Array<string>;
-  // value: string | number;
 }
 
 export const NavigationButton: FC<Props> = ({ className, children, ...restProps }) => (
