@@ -1,4 +1,4 @@
-interface Json {
+interface ProductsResponse {
   products: Array<Product>;
 }
 
@@ -19,6 +19,6 @@ export interface Product {
 export const getUrl = async (): Promise<Array<Product>> => {
   const url = 'https://dummyjson.com/products';
   const res = await fetch(url);
-  const json: Json = await res.json();
+  const json: ProductsResponse = await res.json();
   return json.products;
 };
