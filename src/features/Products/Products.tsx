@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import type { Product } from '~core/api/getUrl';
 
-// import { getUrl } from '~core/api/getUrl.ts';
+import { FetchContext } from '../../providers/FetchContext.tsx';
 import { Filters } from '../Filters/Filters.tsx';
 
 import { ProductsContainer } from './components/ProductsContainer/ProductsContainer.tsx';
@@ -16,7 +16,6 @@ interface Props {
   className?: string;
   children: JSX.Element;
 }
-
 export const Products: FC<Props> = () => {
   const [products, setProducts] = useState<Array<Product>>();
   const [loading, setLoading] = useState(false);
@@ -50,10 +49,12 @@ export const Products: FC<Props> = () => {
       <section className={styles.section}>
         <div className={styles.container}>
           <Filters value={products} />
-          <ProductsContainer value={products}>
-            {loading && <p className={styles.message}>Loading...</p>}
-            {error && <p className={styles.message}>{error}</p>}
-          </ProductsContainer>
+          <FetchContext.Provider value={products}>
+            <ProductsContainer>
+              {loading && <p className={styles.message}>Loading...</p>}
+              {error && <p className={styles.message}>{error}</p>}
+            </ProductsContainer>
+          </FetchContext.Provider>
         </div>
       </section>
     </>

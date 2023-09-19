@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import type { Product } from '~core/api/getUrl';
@@ -15,22 +14,10 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const ProductsContainer: FC<Props> = ({ value, children }) => {
-  const [data, setData] = useState<undefined | Array<Product>>();
-
-  useEffect(() => {
-    const initData = async () => {
-      setData(value);
-    };
-
-    initData();
-  }, [value]);
-
-  return (
-    <div className={styles.container}>
-      <Options />
-      <CardsContainer value={data} />
-      {children}
-    </div>
-  );
-};
+export const ProductsContainer: FC<Props> = ({ children }) => (
+  <div className={styles.container}>
+    <Options />
+    <CardsContainer />
+    {children}
+  </div>
+);
