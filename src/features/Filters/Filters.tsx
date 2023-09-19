@@ -1,4 +1,3 @@
-// import { useState, useEffect } from 'react';
 import type { FC, JSX } from 'react';
 
 import type { Product } from '~core/api/getUrl';
@@ -7,6 +6,7 @@ import { Brand } from './components/Brand/Brand.tsx';
 import { Category } from './components/Category/Category.tsx';
 import { Price } from './components/Price/Price.tsx';
 import { Search } from './components/Search/Search.tsx';
+
 import styles from './Filters.module.scss';
 
 interface Props {
@@ -16,16 +16,6 @@ interface Props {
 }
 
 export const Filters: FC<Props> = () => (
-  // const [data, setData] = useState<Array<Product>>();
-
-  // useEffect(() => {
-  //   const initData = async () => {
-  //     if (value !== undefined) setData(value);
-  //   };
-
-  //   initData();
-  // }, [value]);
-
   <div className={styles.container}>
     <Search />
     <Category />
