@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import type { FC, JSX } from 'react';
 
 import { getCategory } from '~core/api/getCategory';
@@ -6,6 +6,7 @@ import type { Product } from '~core/api/getUrl';
 import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
 import styles from './Category.module.scss';
+import { FetchContext } from '../../../../providers/FetchContext';
 
 interface Props {
   value?: Array<Product>;
@@ -13,16 +14,18 @@ interface Props {
   children?: JSX.Element;
 }
 
-export const Category: FC<Props> = ({ value }) => {
+
+export const Category: FC<Props> = () => {
   const [items, setItems] = useState<undefined | Array<string | number | string[]>>();
+  const context = useContext(FetchContext);
 
   useEffect(() => {
     const datesInit = async () => {
-      const newData = await getCategory('category', value);
+      const newData = await getCategory('category', context);
       setItems(newData);
     };
-    if (value !== undefined) datesInit();
-  }, [value]);
+    if (context !== undefined) datesInit();
+  }, [context]);
 
   const content = !items ? (
     ''

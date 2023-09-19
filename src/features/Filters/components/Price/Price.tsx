@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import type { FC, JSX } from 'react';
 
 import { getCategory } from '~core/api/getCategory';
 import type { Product } from '~core/api/getUrl';
+
+import { FetchContext } from '../../../../providers/FetchContext';
 
 import styles from './Price.module.scss';
 
@@ -11,16 +13,15 @@ interface Props {
   className?: string;
   children?: JSX.Element;
 }
-
-export const Price: FC<Props> = ({ transferValue }) => {
+export const Price: FC<Props> = () => {
   const [value, setValue] = useState(0);
-
   const [maxPrice, setMaxPrice] = useState<number>();
+  const context = useContext(FetchContext);
 
   // TODO: this should be moved to the topmost layer
   useEffect(() => {
     const dateInit = async () => {
-      const newData = await getCategory('price', transferValue);
+      const newData = await getCategory('price', context);
       const arr: number[] | undefined = newData?.map((item) => +item);
       if (arr) {
         setMaxPrice(Math.max(...arr));
@@ -28,8 +29,8 @@ export const Price: FC<Props> = ({ transferValue }) => {
       }
     };
 
-    if (transferValue) dateInit();
-  }, [transferValue]);
+    if (context) dateInit();
+  }, [context]);
 
   return (
     <div className={styles.container}>

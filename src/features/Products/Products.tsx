@@ -47,15 +47,16 @@ export const Products: FC<Props> = () => {
   return (
     <>
       <section className={styles.section}>
-        <div className={styles.container}>
-          <Filters value={products} />
-          <FetchContext.Provider value={products}>
+        <FetchContext.Provider value={products}>
+          <div className={styles.container}>
+            <Filters />
+
             <ProductsContainer>
               {loading && <p className={styles.message}>Loading...</p>}
               {error && <p className={styles.message}>{error}</p>}
             </ProductsContainer>
-          </FetchContext.Provider>
-        </div>
+          </div>
+        </FetchContext.Provider>
       </section>
     </>
   );
