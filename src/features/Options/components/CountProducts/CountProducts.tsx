@@ -1,3 +1,3 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-export const CountProducts = () => <div>CountProducts</div>;
+export const CountProducts = (): JSX.Element => <div>CountProducts</div>;

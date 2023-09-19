@@ -1,13 +1,36 @@
+@use '../../../../../../../../assets/styles/variables.scss' as *;
+
 .card {
   display: flex;
   flex-direction: column;
   width: 300px;
   align-items: center;
+  margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .info {
   display: flex;
   flex-direction: row;
-  width: 92%;
+  width: 100%;
   justify-content: space-between;
+  margin: 10px 0;
+}
+
+.img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 230px;
+  border-radius: $border-radius;
+  // border: 1px solid $neutral-text;
+  transition: transform 0.5s;
+}
+
+.img:hover {
+  transform: scale(1.1);
+}
+
+.price {
+  color: $price-color;
 }

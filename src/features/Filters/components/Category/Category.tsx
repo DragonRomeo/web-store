@@ -1,35 +1,40 @@
 import { useEffect, useState } from 'react';
+import type { FC, JSX } from 'react';
 
-import {getCategory} from '~core/api/getCategory.js';
+import { getCategory } from '~core/api/getCategory';
+import type { Product } from '~core/api/getUrl';
 import { NavigationButton } from '~core/components/NavigationButton/NavigationButton.tsx';
 
 import styles from './Category.module.scss';
 
-export const Category = (): JSX.Element => {
-  const [items, setItems] = useState(null);
+interface Props {
+  value?: Array<Product>;
+  className?: string;
+  children?: JSX.Element;
+}
+
+export const Category: FC<Props> = ({ value }) => {
+  const [items, setItems] = useState<undefined | Array<string | number | string[]>>();
 
   useEffect(() => {
     const datesInit = async () => {
-      const data = await getCategory('category');
-
-      setItems(data);
+      const newData = await getCategory('category', value);
+      setItems(newData);
     };
+    if (value !== undefined) datesInit();
+  }, [value]);
 
-    datesInit();
-  }, []);
-
-  const content =
-    items === null ? (
-      ''
-    ) : (
-      <div className={styles.container}>
-        {items.map((el) => (
-          <NavigationButton key={items.indexOf(el)} className={styles.button}>
-            {el}{' '}
-          </NavigationButton>
-        ))}
-      </div>
-    );
+  const content = !items ? (
+    ''
+  ) : (
+    <div className={styles.container}>
+      {items.map((el) => (
+        <NavigationButton key={items.indexOf(el)} className={styles.button}>
+          {el}
+        </NavigationButton>
+      ))}
+    </div>
+  );
 
   return (
     <div className={styles.container}>
@@ -38,4 +43,3 @@ export const Category = (): JSX.Element => {
     </div>
   );
 };
-

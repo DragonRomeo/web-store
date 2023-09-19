@@ -1,44 +1,48 @@
 import { useEffect, useState } from 'react';
+import type { FC, JSX } from 'react';
 
-import getUrl from '~core/api/getUrl.js';
+import { getCategory } from '~core/api/getCategory';
+import type { Product } from '~core/api/getUrl';
 
 import styles from './Price.module.scss';
 
-// TODO: move to core/api
-const getData = async () => {
-  const json = await getUrl();
-  const arr = json.map((el) => el.price);
-  const sort = arr.sort((a, b) => b - a);
-  console.log(sort[0]);
-  return sort[0];
-};
+interface Props {
+  transferValue?: Array<Product>;
+  className?: string;
+  children?: JSX.Element;
+}
 
-export const Price = (): JSX.Element => {
-  const [data, setData] = useState(0);
+export const Price: FC<Props> = ({ transferValue }) => {
+  const [value, setValue] = useState(0);
 
-  const [maxPrice, setMaxPrice] = useState();
+  const [maxPrice, setMaxPrice] = useState<number>();
 
   // TODO: this should be moved to the topmost layer
   useEffect(() => {
     const dateInit = async () => {
-      setMaxPrice(await getData());
+      const newData = await getCategory('price', transferValue);
+      const arr: number[] | undefined = newData?.map((item) => +item);
+      if (arr) {
+        setMaxPrice(Math.max(...arr));
+        setValue(Math.max(...arr));
+      }
     };
 
-    dateInit();
-  }, []);
+    if (transferValue) dateInit();
+  }, [transferValue]);
 
   return (
     <div className={styles.container}>
       <h5>price</h5>
-      <p>{data} $</p>
-      {maxPrice !== undefined ? (
+      <p>{value} $</p>
+      {maxPrice ? (
         <input
           type="range"
           name="price"
           min="0"
           max={maxPrice}
-          value={data}
-          onChange={(e) => setData(parseInt(e.target.value))}
+          value={value}
+          onChange={(e) => setValue(+e.target.value)}
           step="1"
         />
       ) : undefined}

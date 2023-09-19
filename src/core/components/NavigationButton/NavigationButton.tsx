@@ -5,7 +5,7 @@ import styles from './NavigationButton.module.scss';
 
 interface Props {
   className?: string;
-  children: JSX.Element;
+  children: JSX.Element | string | number | Array<string>;
 }
 
 export const NavigationButton: FC<Props> = ({ className, children, ...restProps }) => (
@@ -13,5 +13,3 @@ export const NavigationButton: FC<Props> = ({ className, children, ...restProps 
     {children}
   </button>
 );
-
-// export default NavigationButton;
