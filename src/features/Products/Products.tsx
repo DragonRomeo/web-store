@@ -51,8 +51,8 @@ export const Products: FC<Props> = () => {
         <div className={styles.container}>
           <Filters value={products} />
           <ProductsContainer value={products}>
-            {loading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
+            {loading && <p className={styles.message}>Loading...</p>}
+            {error && <p className={styles.message}>{error}</p>}
           </ProductsContainer>
         </div>
       </section>
