@@ -34,8 +34,7 @@ export const Products: FC<Props> = () => {
         const url = 'https://dummyjson.com/products';
         const response = await axios.get(url);
         setProducts(response.data.products);
-        console.log(response);
-        setLoading(false)
+        setLoading(false);
       } catch (e: unknown) {
         const err = e as AxiosError;
         setLoading(false);
@@ -50,10 +49,11 @@ export const Products: FC<Props> = () => {
     <>
       <section className={styles.section}>
         <div className={styles.container}>
-          {loading && <p>Loading...</p>}
-          {error && <p>{error}</p>}
           <Filters value={products} />
-          <ProductsContainer value={products} />
+          <ProductsContainer value={products}>
+            {loading && <p>Loading...</p>}
+            {error && <p>{error}</p>}
+          </ProductsContainer>
         </div>
       </section>
     </>
