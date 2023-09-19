@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import type { FC, JSX } from 'react';
 
 import type { Product } from '~core/api/getUrl';
+
+import { FetchContext } from '../../../../../../providers/FetchContext.tsx';
 
 import { Card } from './components/Card/Card.tsx';
 
@@ -13,28 +15,26 @@ interface Props {
   children?: JSX.Element;
 }
 
-export const CardsContainer: FC<Props> = ({ value }) => {
+export const CardsContainer: FC<Props> = () => {
   const [data, setData] = useState<undefined | Array<Product>>();
+  const context = useContext(FetchContext);
 
   useEffect(() => {
-    if (!value) return;
     const datesInit = async () => {
-      setData(value);
+       /* I need help here */
+      setData(context);
     };
 
     datesInit();
-  }, [value]);
+  }, [context]);
 
-  const content =
-    data === undefined ? (
-      <></>
-    ) : (
+  return (
+    data && (
       <div className={styles.container}>
         {data.map((el) => (
           <Card key={el.id} value={el} />
         ))}
       </div>
-    );
-
-  return content;
+    )
+  );
 };

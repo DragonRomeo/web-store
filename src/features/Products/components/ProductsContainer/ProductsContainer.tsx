@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import type { FC, JSX } from 'react';
+import type { FC } from 'react';
 
 import type { Product } from '~core/api/getUrl';
 
@@ -12,24 +11,13 @@ import styles from './ProductsContainer.module.scss';
 interface Props {
   value?: Array<Product>;
   className?: string;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
-export const ProductsContainer: FC<Props> = ({ value }) => {
-  const [data, setData] = useState<undefined | Array<Product>>();
-
-  useEffect(() => {
-    const initData = async () => {
-      setData(value);
-    };
-
-    initData();
-  }, [value]);
-
-  return (
-    <div className={styles.container}>
-      <Options />
-      <CardsContainer value={data} />
-    </div>
-  );
-};
+export const ProductsContainer: FC<Props> = ({ children }) => (
+  <div className={styles.container}>
+    <Options />
+    <CardsContainer />
+    {children}
+  </div>
+);
